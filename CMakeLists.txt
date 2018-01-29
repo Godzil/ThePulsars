@@ -26,7 +26,7 @@ string(REGEX REPLACE "^v([0-9]+)\\..*" "\\1" VERSION_MAJOR "${VERSION}")
 string(REGEX REPLACE "^v[0-9]+\\.([0-9]+).*" "\\1" VERSION_MINOR "${VERSION}")
 string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.([0-9]+).*" "\\1" VERSION_MICRO "${VERSION}")
 string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.[0-9]+-(.*)" "\\1" VERSION_SHA1 "${VERSION}")
-
+message("-- Building version ${VERSION}")
 add_compile_options(-DV_MAJOR=${VERSION_MAJOR})
 add_compile_options(-DV_MINOR=${VERSION_MINOR})
 add_compile_options(-DV_MICRO=${VERSION_MICRO})
