@@ -7,7 +7,7 @@
 
 #include <server.h>
 #include <network.h>
-#include <private.h>
+#include <objects.h>
 
 #include <general.h>
 #include <pulsarnet.h>
@@ -46,7 +46,7 @@ static void gfx_send_map(gfx_client_t *cl)
    }
    for (i = 0 ; i < gl_config->nb_objects ; i++)
    {
-      obj = gl_objects + i;
+      obj = glbObjects + i;
       net_wr_string(cl->wsock, "OBJ");
       net_wr_int(cl->wsock, obj->obj.id);
       net_wr_int(cl->wsock, obj->obj.type);

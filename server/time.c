@@ -9,7 +9,7 @@
 
 void timer_timeout(int foo)
 {
-   printf("%d: timeout.\n", gl_player->team_id);
+   printf("%d: timeout.\n", glbPlayer->team_id);
    fflush(stdout);
    kill(getpid(), SIGKILL);
 }

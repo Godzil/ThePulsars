@@ -8,7 +8,7 @@
 #include <unistd.h>
 
 #include <server.h>
-#include <private.h>
+#include <objects.h>
 #include <ipc.h>
 
 /* TODO: This is going to be painful to remove GLIB */
@@ -110,12 +110,12 @@ static void map_load_value(GScanner *scan, conf_t *conf, int id)
    switch (type)
    {
    case G_TOKEN_SYMBOL:
-      gl_objects[id].obj.team_id = parser_get_symbol_as_int(scan);
+      glbObjects[id].obj.team_id = parser_get_symbol_as_int(scan);
       parser_check_type(scan, g_scanner_get_next_token(scan),
                         G_TOKEN_SEMICOLON);
       break;
    case G_TOKEN_INT:
-      gl_objects[id].obj.team_id = g_scanner_cur_value(scan).v_int;
+      glbObjects[id].obj.team_id = g_scanner_cur_value(scan).v_int;
       parser_check_type(scan, g_scanner_get_next_token(scan),
                         G_TOKEN_SEMICOLON);
       break;
@@ -126,9 +126,9 @@ static void map_load_value(GScanner *scan, conf_t *conf, int id)
                             TRUE);
       abort();
    }
-   if (gl_objects[id].obj.team_id > conf->nb_players)
+   if (glbObjects[id].obj.team_id > conf->nb_players)
    {
-      gl_objects[id].obj.team_id = 0;
+      glbObjects[id].obj.team_id = 0;
    }
 #endif
 }
@@ -270,7 +270,7 @@ void load_map(conf_t *conf)
    {
       fprintf(stderr, "Erreur: impossible d'ouvrir la carte (%s): %s\n",
               conf->map_name, strerror(errno));
-      abort();
+      server_abort();
    }
 #if 0
    scan = g_scanner_new(NULL);
@@ -290,7 +290,7 @@ void load_map(conf_t *conf)
 
    map_load_header(scan, conf);
 
-   gl_objects = shm_alloc(sizeof(*gl_objects) * conf->nb_objects,
+   glbObjects = shm_alloc(sizeof(*glbObjects) * conf->nb_objects,
                           get_shm_world_id());
    map_load_data(scan, conf);
 

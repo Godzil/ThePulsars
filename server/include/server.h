@@ -3,21 +3,9 @@
 #ifndef __PROLO_SERVER_H__
 #define __PROLO_SERVER_H__
 
-#include <plugins.h>
+#include <player.h>
 #include <conf.h>
 
-extern player_t *gl_player;
-
-/* Initialization functions */
-conf_t *init(int argc, char **argv);
-void launch_game(conf_t *conf);
-void load_map(conf_t *conf);
-void start_client(player_t *player, int turn_num);
-
-/* Time functions */
-void start_timer();
-void stop_timer();
-int time_left();
-void abort();
+void server_abort();
 
 #endif

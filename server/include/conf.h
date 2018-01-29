@@ -43,23 +43,8 @@ typedef struct _conf_t
   sigset_t	*mask;
 } conf_t;
 
-extern conf_t	*gl_config;
+extern conf_t *gl_config;
 
-#define	CONF_DEFAULT_PORT	4242
-#define CONF_DEFAULT_MAP	"./default.map"
-#define CONF_DEFAULT_NBTURNS	420
-#define CONF_DEFAULT_TURN_MSEC	200
-#define	DEF_TURN_TAKE_AKX	5
-#define	DEF_TURN_UNTAKE_AKX	5
-#define	DEF_TURN_TAKE_R4D2	5
-#define	DEF_TURN_UNTAKE_R4D2	5
-#define	DEF_R4D2_SPEED		2.0
-#define	DEF_AKX_SPEED		0.1
-#define	DEF_PULSE_POWER		1000.0
-#define	DEF_SEE_POWER		1.0
-#define	DEF_PULSE_COEF		1.0
-#define	DEF_SIZE_X		1
-#define	DEF_SIZE_Y		1
-#define	DEF_DESTROY_SPEED	-1.0
+conf_t *conf_set_default(conf_t *res);
 
 #endif

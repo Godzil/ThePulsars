@@ -11,7 +11,7 @@
 
 #include <general.h>
 
-void init_fd_set(fd_set *fds)
+static void init_fd_set(fd_set *fds)
 {
    GSList *l;
    player_t *player;
@@ -25,7 +25,7 @@ void init_fd_set(fd_set *fds)
    }
 }
 
-int get_max_player_fd(fd_set *fds, FILE **tab_fds)
+static int get_max_player_fd(fd_set *fds, FILE **tab_fds)
 {
    GSList *l;
    player_t *player;
@@ -47,7 +47,7 @@ int get_max_player_fd(fd_set *fds, FILE **tab_fds)
    return max;
 }
 
-void test_file_fd(fd_set *fds, FILE **tab_fds)
+static void test_file_fd(fd_set *fds, FILE **tab_fds)
 {
    GSList *l;
    player_t *player;
@@ -80,7 +80,7 @@ void test_file_fd(fd_set *fds, FILE **tab_fds)
 
 static boolean_t gl_stop = False;
 
-void messager_exit(int foo)
+static void messager_exit(int foo)
 {
    gl_stop = True;
 }

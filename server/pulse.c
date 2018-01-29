@@ -1,9 +1,8 @@
 /* $Id: pulse.c,v 1.14 2001/05/06 07:23:34 kilobug Exp $ */
 
-#include <private.h>
+#include <objects.h>
 #include <server.h>
-#include <action.h>
-#include <game.h>
+#include <map.h>
 
 float get_pulse_team(float x, float y, int team_id)
 {
@@ -14,7 +13,7 @@ float get_pulse_team(float x, float y, int team_id)
 
    for (i = 0 ; i < gl_config->nb_objects ; i++)
    {
-      akx = &gl_objects[i].akx;
+      akx = &glbObjects[i].akx;
       if (((akx->team_id == team_id) ||
            ((akx->team_id != -team_id) && (team_id < 0) && (akx->team_id))) &&
           (akx->type == obj_akx) &&
@@ -23,10 +22,10 @@ float get_pulse_team(float x, float y, int team_id)
          pulse = &akx->action.act.pulse;
          if ((x != akx->x) || (y != akx->y))
          {
-            r = dist(pulse->x, pulse->y, akx->x, akx->y);
-            if (r >= dist(x, y, akx->x, akx->y))
+            r = map_get_dist(pulse->x, pulse->y, akx->x, akx->y);
+            if (r >= map_get_dist(x, y, akx->x, akx->y))
             {
-               agl = angle(x, y, akx->x, akx->y, pulse->x, pulse->y);
+               agl = map_get_angle(x, y, akx->x, akx->y, pulse->x, pulse->y);
                if (agl <= (pulse->angle / 2))
                {
                   result += akx->energy / (1 + r * pulse->angle / 2);
@@ -46,16 +45,16 @@ float get_pulse_id(float x, float y, int akx_id)
    akx_t *akx;
    akx_pulse_t *pulse;
 
-   akx = &gl_objects[akx_id].akx;
+   akx = &glbObjects[akx_id].akx;
    if (akx->action.type == act_akx_pulse)
    {
       pulse = &akx->action.act.pulse;
       if ((x != akx->x) || (y != akx->y))
       {
-         r = dist(pulse->x, pulse->y, akx->x, akx->y);
-         if (r >= dist(x, y, akx->x, akx->y))
+         r = map_get_dist(pulse->x, pulse->y, akx->x, akx->y);
+         if (r >= map_get_dist(x, y, akx->x, akx->y))
          {
-            agl = angle(x, y, akx->x, akx->y, pulse->x, pulse->y);
+            agl = map_get_angle(x, y, akx->x, akx->y, pulse->x, pulse->y);
             if (agl <= (pulse->angle / 2))
             {
                result += akx->energy / (1 + r * pulse->angle / 2);

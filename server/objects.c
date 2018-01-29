@@ -1,18 +1,18 @@
 /* $Id: objects.c,v 1.5 2001/04/06 17:36:55 glop Exp $ */
 
 #include <server.h>
-#include <private.h>
+#include <objects.h>
 #include <client.h>
 
 #include <general.h>
 
-
+item_t *glbObjects;
 
 void new_akx(float x, float y, int id)
 {
    item_t *res;
 
-   res = gl_objects + id;
+   res = glbObjects + id;
    res->akx.change = False;
    res->akx.x = x;
    res->akx.y = y;
@@ -27,7 +27,7 @@ void new_r4d2(float x, float y, int id)
 {
    item_t *res;
 
-   res = gl_objects + id;
+   res = glbObjects + id;
    res->r4d2.change = False;
    res->r4d2.x = x;
    res->r4d2.y = y;

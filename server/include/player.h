@@ -5,15 +5,16 @@
 
 #include "conf.h"
 
-typedef void (prolo_callback_t)(int);
-
-typedef void (prolo_callback2_t)(int, int);
-
-typedef struct _player_t
+typedef struct player_t
 {
     const char *name;
-    prolo_callback2_t *init;
-    prolo_callback_t *new_turn, *turn_akx, *turn_r4d2;
+
+    /* Function exported by the player module */
+    void (*init)(int team, int nbPlayers);
+    void (*new_turn)(int turn);
+    void (*akx_turn)(int id);
+    void (*r4d2_turn)(int id);
+
     float score;
     int team_id;
     int time_turn;
@@ -28,17 +29,13 @@ typedef struct _player_t
     boolean_t alive;
 } player_t;
 
-player_t *new_player(const char *libname, const char *name, int id,
-                     conf_t *conf);
+extern player_t *glbPlayer;
 
-void destroy_player(player_t *player);
-
+player_t *player_new(const char *libname, const char *name, int id, conf_t *conf);
+void player_destroy(player_t *player);
 void player_init(player_t *p, int team_id);
-
 void player_new_turn(player_t *p, int turn_num);
-
 void player_turn_akx(player_t *p, int akx_id);
-
 void player_turn_r4d2(player_t *p, int r4d2_id);
 
 #endif

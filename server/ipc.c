@@ -25,7 +25,7 @@ int get_shm_key(char c)
       return i;
    }
    perror("ftok");
-   abort();
+   server_abort();
 }
 
 int get_shm_conf_id()
@@ -54,13 +54,13 @@ void *shm_alloc(int size, int id)
       if ((shmid = shmget(id, size, 0)) == -1)
       {
          perror("shmget");
-         abort();
+         server_abort();
       }
    }
    if ((res = shmat(shmid, 0, 0)) == (void *)-1)
    {
       perror("shmat");
-      abort();
+      server_abort();
    }
    shm_memory_list = g_slist_prepend(shm_memory_list, GINT_TO_POINTER(shmid));
    return res;
@@ -76,10 +76,10 @@ void clean_shm()
    }
    for (l = gl_config->players ; l != NULL ; l = l->next)
    {
-      gl_player = l->data;
-      if (gl_player->pid)
+      glbPlayer = l->data;
+      if (glbPlayer->pid)
       {
-         kill(gl_player->pid, SIGKILL);
+         kill(glbPlayer->pid, SIGKILL);
       }
    }
    for (l = shm_memory_list ; l != NULL ; l = l->next)

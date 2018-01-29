@@ -7,7 +7,7 @@ void parser_check_type(GScanner *scan, GTokenType type, GTokenType wanted)
   if (type != wanted)
     {
       g_scanner_unexp_token(scan, wanted, NULL, NULL, NULL, NULL, TRUE);
-      abort();
+      server_abort();
     }
 }
 
@@ -38,7 +38,7 @@ int parser_get_int(GScanner *scan)
     default:
       g_scanner_unexp_token(scan, G_TOKEN_INT, NULL, NULL, NULL, 
 			    NULL, TRUE);
-      abort();      
+      server_abort();
     }
 }
 
@@ -56,7 +56,7 @@ double parser_get_float(GScanner *scan)
     default:
       g_scanner_unexp_token(scan, G_TOKEN_FLOAT, NULL, NULL, NULL, 
 			    NULL, TRUE);
-      abort();      
+      server_abort();
     }
 }
 
@@ -71,7 +71,7 @@ char *parser_get_string(GScanner *scan)
     default:
       g_scanner_unexp_token(scan, G_TOKEN_STRING, NULL, NULL, NULL, 
 			    NULL, TRUE);
-      abort();
+      server_abort();
     }
 }
 

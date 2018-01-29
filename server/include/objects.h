@@ -59,10 +59,9 @@ typedef union _item_t
     r4d2_t r4d2;
 } item_t;
 
-extern item_t *gl_objects;
+extern item_t *glbObjects;
 
 void new_akx(float x, float y, int id);
-
 void new_r4d2(float x, float y, int id);
 
 #endif

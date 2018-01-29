@@ -10,18 +10,15 @@
 #include <unistd.h>
 
 #include <server.h>
-#include <private.h>
+#include <objects.h>
 #include <public.h>
 #include <client.h>
 #include <stdlib.h>
 #include <message.h>
 #include <exec.h>
+#include <time.h>
 
 #include <general.h>
-
-item_t *gl_objects;
-player_t *gl_player;
-conf_t *gl_config;
 
 static void signal_usr1(int foo)
 {
@@ -29,8 +26,8 @@ static void signal_usr1(int foo)
 
 static void client_died(int foo)
 {
-   gl_player->alive = False;
-   printf("%d: died.\n", gl_player->team_id);
+   glbPlayer->alive = False;
+   printf("%d: died.\n", glbPlayer->team_id);
    fflush(stdout);
    wait(NULL);
 }
@@ -40,26 +37,26 @@ static void play_turn(int turn_num)
    int i;
 
    start_timer();
-   if (gl_player->new)
+   if (glbPlayer->new)
    {
-      player_init(gl_player, gl_player->team_id);
-      gl_player->new = False;
+      player_init(glbPlayer, glbPlayer->team_id);
+      glbPlayer->new = False;
    }
    else
    {
-      player_new_turn(gl_player, turn_num);
+      player_new_turn(glbPlayer, turn_num);
 
       for (i = 0 ; i < gl_config->nb_objects ; i++)
       {
-         if (gl_objects[i].obj.team_id == gl_player->team_id)
+         if (glbObjects[i].obj.team_id == glbPlayer->team_id)
          {
-            switch (gl_objects[i].obj.type)
+            switch (glbObjects[i].obj.type)
             {
             case obj_akx:
-               player_turn_akx(gl_player, gl_objects[i].obj.id);
+               player_turn_akx(glbPlayer, glbObjects[i].obj.id);
                break;
             case obj_r4d2:
-               player_turn_r4d2(gl_player, gl_objects[i].obj.id);
+               player_turn_r4d2(glbPlayer, glbObjects[i].obj.id);
                break;
             }
          }
@@ -101,7 +98,7 @@ void start_client(player_t *player, int turn_num)
       close(player->pipe_write);
       close(player->pipe_read);
       player->new = True;
-      gl_player = player;
+      glbPlayer = player;
       rl.rlim_cur = rl.rlim_max = 16 * 1024 * 1024;
       setrlimit(RLIMIT_DATA, &rl);
       while (True)
@@ -122,7 +119,7 @@ void turn_client(player_t *play)
    }
    else
    {
-      start_client(gl_player, gl_config->turn_num);
+      start_client(glbPlayer, gl_config->turn_num);
    }
 }
 
@@ -147,7 +144,7 @@ int check_done()
 }
 
 /* lanceur de partie */
-void launch_game(conf_t *conf)
+void game_launch(conf_t *conf)
 {
    GSList *l;
    int i;
@@ -189,12 +186,12 @@ void launch_game(conf_t *conf)
 
          for (i = 0 ; i < conf->nb_objects ; i++)
          {
-            gl_objects[i].obj.change = False;
+            glbObjects[i].obj.change = False;
          }
 
          for (l = conf->players ; l != NULL ; l = l->next)
          {
-            gl_player = l->data;
+            glbPlayer = l->data;
             turn_client(l->data);
          }
 

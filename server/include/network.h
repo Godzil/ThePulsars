@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #include <general.h>
-#include "private.h"
+#include "objects.h"
 
 typedef struct _gfx_client_t
 {

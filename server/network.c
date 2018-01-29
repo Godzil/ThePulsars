@@ -8,10 +8,10 @@
 
 #include <pulsarnet.h>
 #include <general.h>
-#include <private.h>
+#include <objects.h>
 #include <action.h>
 
-void gfx_trash_client(net_type_t get, net_type_t wanted, void *data)
+static void gfx_trash_client(net_type_t get, net_type_t wanted, void *data)
 {
    gfx_client_t *cl;
 
@@ -98,10 +98,10 @@ static boolean_t gfx_do_send_updates(void *data, void *foo)
    }
    for (i = 0 ; i < gl_config->nb_objects ; i++)
    {
-      if (gl_objects[i].obj.change)
+      if (glbObjects[i].obj.change)
       {
          net_wr_string(cl->wsock, "UOB");
-         obj = gl_objects + i;
+         obj = glbObjects + i;
          net_wr_int(cl->wsock, obj->obj.id);
          gfx_write_object(cl->wsock, obj);
       }

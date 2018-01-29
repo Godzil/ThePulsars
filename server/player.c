@@ -8,6 +8,7 @@
 #include <general.h>
 #include <ipc.h>
 
+player_t *glbPlayer;
 
 static void *get_symbol(GModule *hdl, const char *name, boolean_t stop_error)
 {
@@ -29,7 +30,7 @@ static void *get_symbol(GModule *hdl, const char *name, boolean_t stop_error)
    return p;
 }
 
-player_t *new_player(const char *libname, const char *name, int id,
+player_t *player_new(const char *libname, const char *name, int id,
                      conf_t *conf)
 {
    player_t *player;
@@ -41,7 +42,7 @@ player_t *new_player(const char *libname, const char *name, int id,
    if (!g_module_supported())
    {
       fprintf(stderr, "%s\n", "Fatal error : Dynamic library not supported!");
-      abort();
+      server_abort();
    }
    player->team_id = id;
    player->name = name;
@@ -53,7 +54,7 @@ player_t *new_player(const char *libname, const char *name, int id,
    {
       fprintf(stderr, "Dynamic library error : %s : %s\n",
               libname, g_module_error());
-      abort();
+      server_abort();
    }
    caml = get_symbol(player->handle, "caml_startup", False);
    if (caml)
@@ -71,7 +72,7 @@ player_t *new_player(const char *libname, const char *name, int id,
    return player;
 }
 
-void destroy_player(player_t *player)
+void player_destroy(player_t *player)
 {
    g_module_close(player->handle);
    free(player);

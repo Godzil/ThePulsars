@@ -4,11 +4,12 @@
 
 #include <server.h>
 #include <client.h>
-#include <private.h>
+#include <objects.h>
 #include <memory.h>
 #include <stdlib.h>
 #include <action.h>
-#include <game.h>
+#include <map.h>
+#include <pulse.h>
 #include <exec.h>
 #include <network.h>
 
@@ -60,7 +61,7 @@ void check_conflict_akx(int akx_id)
    bzero(nbr_r4d2, gl_config->nb_players * sizeof(int));
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      temp = gl_objects + cpt;
+      temp = glbObjects + cpt;
       if (temp->obj.type == obj_r4d2)
       {
          if (temp->r4d2.action.type == act_r4d2_take_akx)
@@ -75,7 +76,7 @@ void check_conflict_akx(int akx_id)
    winner = get_max(nbr_r4d2, gl_config->nb_players);
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      temp = gl_objects + cpt;
+      temp = glbObjects + cpt;
       if (temp->obj.type == obj_r4d2)
       {
          if (temp->r4d2.action.type == act_r4d2_take_akx)
@@ -103,7 +104,7 @@ void check_conflict_r4d2(int r4d2_id)
    bzero(nbr_r4d2, gl_config->nb_players * sizeof(int));
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      temp = gl_objects + cpt;
+      temp = glbObjects + cpt;
       if (temp->obj.type == obj_r4d2)
       {
          if (temp->r4d2.action.type == act_r4d2_take_r4d2)
@@ -118,7 +119,7 @@ void check_conflict_r4d2(int r4d2_id)
    winner = get_max(nbr_r4d2, gl_config->nb_players);
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      temp = gl_objects + cpt;
+      temp = glbObjects + cpt;
       if (temp->obj.type == obj_r4d2)
       {
          if (temp->r4d2.action.type == act_r4d2_take_r4d2)
@@ -143,7 +144,7 @@ void check_conflict()
 
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      temp = gl_objects + cpt;
+      temp = glbObjects + cpt;
       if (temp->obj.type == obj_r4d2)
       {
          if (temp->r4d2.action.type == act_r4d2_take_akx)
@@ -183,17 +184,17 @@ void check_take()
 
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      it = gl_objects + cpt;
+      it = glbObjects + cpt;
       if (it->obj.type == obj_r4d2)
       {
          switch (it->r4d2.action.type)
          {
          case act_r4d2_take_akx:
             tid = it->r4d2.action.act.take_akx.target_id;
-            if (dist(gl_objects[cpt].r4d2.x,
-                     gl_objects[cpt].r4d2.y,
-                     gl_objects[tid].akx.x,
-                     gl_objects[tid].akx.y)
+            if (map_get_dist(glbObjects[cpt].r4d2.x,
+                             glbObjects[cpt].r4d2.y,
+                             glbObjects[tid].akx.x,
+                             glbObjects[tid].akx.y)
                 > DIST_MIN_TAKE)
             {
                set_default_action_r4d2(cpt);
@@ -201,10 +202,10 @@ void check_take()
             break;
          case act_r4d2_take_r4d2:
             tid = it->r4d2.action.act.take_r4d2.target_id;
-            if (dist(gl_objects[cpt].r4d2.x,
-                     gl_objects[cpt].r4d2.y,
-                     gl_objects[tid].r4d2.x,
-                     gl_objects[tid].r4d2.y)
+            if (map_get_dist(glbObjects[cpt].r4d2.x,
+                             glbObjects[cpt].r4d2.y,
+                             glbObjects[tid].r4d2.x,
+                             glbObjects[tid].r4d2.y)
                 > DIST_MIN_TAKE)
             {
                set_default_action_r4d2(cpt);
@@ -225,64 +226,64 @@ void exec_objects()
    check_conflict();
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      if (gl_objects[cpt].obj.type == obj_r4d2)
+      if (glbObjects[cpt].obj.type == obj_r4d2)
       {
-         exec_destroy(&(gl_objects[cpt].r4d2));
+         exec_destroy(&(glbObjects[cpt].r4d2));
       }
    }
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      if (gl_objects[cpt].obj.type == obj_akx)
+      if (glbObjects[cpt].obj.type == obj_akx)
       {
-         if (gl_objects[cpt].akx.action.type == act_akx_move)
+         if (glbObjects[cpt].akx.action.type == act_akx_move)
          {
-            exec_akx_move(&(gl_objects[cpt].akx));
+            exec_akx_move(&(glbObjects[cpt].akx));
          }
       }
-      else if ((gl_objects[cpt].obj.type == obj_r4d2) &&
-               (gl_objects[cpt].r4d2.action.type == act_r4d2_move))
+      else if ((glbObjects[cpt].obj.type == obj_r4d2) &&
+               (glbObjects[cpt].r4d2.action.type == act_r4d2_move))
       {
-         exec_r4d2_move(&(gl_objects[cpt].r4d2));
+         exec_r4d2_move(&(glbObjects[cpt].r4d2));
       }
    }
    /* AJOUT MATHIAS */
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      if (gl_objects[cpt].obj.type == obj_akx)
+      if (glbObjects[cpt].obj.type == obj_akx)
       {
-         exec_akx_reset_energy(&(gl_objects[cpt].akx));
+         exec_akx_reset_energy(&(glbObjects[cpt].akx));
       }
    }
 
 
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      if ((gl_objects[cpt].obj.type == obj_akx) &&
-          (gl_objects[cpt].akx.action.type == act_akx_link))
+      if ((glbObjects[cpt].obj.type == obj_akx) &&
+          (glbObjects[cpt].akx.action.type == act_akx_link))
       {
-         exec_akx_link(&(gl_objects[cpt].akx));
+         exec_akx_link(&(glbObjects[cpt].akx));
       }
    }
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      if (gl_objects[cpt].obj.type == obj_r4d2)
+      if (glbObjects[cpt].obj.type == obj_r4d2)
       {
-         if (gl_objects[cpt].r4d2.action.type == act_r4d2_take_akx)
+         if (glbObjects[cpt].r4d2.action.type == act_r4d2_take_akx)
          {
-            exec_r4d2_take_akx(&gl_objects[cpt].r4d2);
+            exec_r4d2_take_akx(&glbObjects[cpt].r4d2);
          }
-         else if (gl_objects[cpt].r4d2.action.type == act_r4d2_take_r4d2)
+         else if (glbObjects[cpt].r4d2.action.type == act_r4d2_take_r4d2)
          {
-            exec_r4d2_take_r4d2(&gl_objects[cpt].r4d2);
+            exec_r4d2_take_r4d2(&glbObjects[cpt].r4d2);
          }
       }
    }
    for (cpt = 0 ; cpt < gl_config->nb_objects ; cpt++)
    {
-      if ((gl_objects[cpt].obj.type == obj_akx) &&
-          (gl_objects[cpt].akx.action.type == act_akx_pulse))
+      if ((glbObjects[cpt].obj.type == obj_akx) &&
+          (glbObjects[cpt].akx.action.type == act_akx_pulse))
       {
-         exec_akx_pulse(&(gl_objects[cpt].akx));
+         exec_akx_pulse(&(glbObjects[cpt].akx));
       }
    }
 
@@ -407,8 +408,8 @@ void exec_r4d2_take_r4d2(r4d2_t *r4d2)
    r4d2->action.act.take_r4d2.turn_need--;
    if (r4d2->action.act.take_r4d2.turn_need <= 0)
    {
-      gl_objects[r4d2->action.act.take_r4d2.target_id].obj.change = True;
-      gl_objects[r4d2->action.act.take_r4d2.target_id].obj.team_id = r4d2->team_id;
+      glbObjects[r4d2->action.act.take_r4d2.target_id].obj.change = True;
+      glbObjects[r4d2->action.act.take_r4d2.target_id].obj.team_id = r4d2->team_id;
       r4d2->action.type = act_r4d2_move;
       r4d2->action.act.move.x = r4d2->x;
       r4d2->action.act.move.y = r4d2->y;
@@ -420,8 +421,8 @@ void exec_r4d2_take_akx(r4d2_t *r4d2)
    r4d2->action.act.take_akx.turn_need--;
    if (r4d2->action.act.take_akx.turn_need <= 0)
    {
-      gl_objects[r4d2->action.act.take_akx.target_id].obj.change = True;
-      gl_objects[r4d2->action.act.take_akx.target_id].obj.team_id = r4d2->team_id;
+      glbObjects[r4d2->action.act.take_akx.target_id].obj.change = True;
+      glbObjects[r4d2->action.act.take_akx.target_id].obj.team_id = r4d2->team_id;
       r4d2->action.type = act_r4d2_move;
       r4d2->action.act.move.x = r4d2->x;
       r4d2->action.act.move.y = r4d2->y;
@@ -447,17 +448,17 @@ void exec_akx_link(akx_t *akx)
 {
    float dst;
 
-   if (akx->team_id != gl_objects[akx->action.act.link.target_id].obj.team_id)
+   if (akx->team_id != glbObjects[akx->action.act.link.target_id].obj.team_id)
    {
-      gl_objects[akx->id].obj.change = True;
+      glbObjects[akx->id].obj.change = True;
       set_default_action_akx(akx->id);
       return;
    }
 
-   dst = dist(akx->x, akx->y, gl_objects[akx->action.act.link.target_id].obj.x,
-              gl_objects[akx->action.act.link.target_id].obj.y);
+   dst = map_get_dist(akx->x, akx->y, glbObjects[akx->action.act.link.target_id].obj.x,
+                      glbObjects[akx->action.act.link.target_id].obj.y);
 
-   gl_objects[akx->action.act.link.target_id].akx.energy += akx->energy / (1 + sqrt(dst));
+   glbObjects[akx->action.act.link.target_id].akx.energy += akx->energy / (1 + sqrt(dst));
 
    akx->energy = gl_config->pulse_power;
 }

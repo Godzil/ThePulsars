@@ -3,12 +3,10 @@
 #ifndef __PROLO_GAME_H__
 #define __PROLO_GAME_H__
 
-float dist(float x1, float y1, float x2, float y2);
-float angle(float x, float y, float x1, float y1, float x2, float y2);
+#include "conf.h"
+#include "player.h"
 
-float get_pulse_team(float x, float y, int team_id);
-float get_pulse_id(float x, float y, int akx_id);
-float get_pulse_foe(float x, float y, int team_id);
-float get_pulse_total(float x, float y, int team_id);
+void game_launch(conf_t *conf);
+void start_client(player_t *player, int turn_num);
 
 #endif
