@@ -1,0 +1,99 @@
+.\"$Id: map.man,v 1.3 2001/05/07 02:41:36 kilobug Exp $
+.TH "map" 5 "4 Mai 2001" "Prologin" "Finale prologin 2001"
+.SH NOM
+.BR "map" " \- Format des cartes pour la finale Prologin 2001"
+
+.SH DESCRIPTION
+
+Les cartes sont des fichiers textes décrivant les différentes paramètres.
+Elles se composent de deux sections, une décrivant les paramètres généraux
+(taille, vitesses de déplacement, ...) et une autre donnant la position de
+chacun des objets.
+
+.SH SYNTAXE
+
+La structure globale d'un fichier est donc:
+
+[ header ]
+
+KEYWORD = value
+
+KEYWORD = value
+
+[ objects ]
+
+(x,y) OBJ1 TEAM1;
+
+Les commentaires sont autorisés (style C: /* */).
+
+.SH EN-TETE
+
+La liste des mots clés reconnus est la suivante. Ils peuvent tous être omis
+sauf 
+
+.BR NB_OBJECTS " ce champ doit contenir exactement le nombre d'objets présents sur la carte."
+
+.BR TAKE_AKX " nombre de tours nécessaire pour prendre le contrôle d'un AKX sauvage."
+
+.BR UNTAKE_AKX " nombre de tours supplémentaires pour prendre le contrôle d'un AKX non sauvage."
+
+.BR TAKE_R4D2 " nombre de tours nécessaire pour prendre le contrôle d'un R4D2."
+
+.BR SIZE_X " taille en X de la map."
+
+.BR SIZE_Y " taille en Y de la map."
+
+.BR AKX_SPEED " vitesse de déplacement des AKX en unités par tour."
+
+.BR R4D2_SPEED " vitesse de déplacement des R4D2 en unités par tour."
+
+.BR PULSE_POWER " puissance de pulse."
+
+.BR SEE_POWER " puissance nécessaire pour voir une zone."
+
+.BR SEE " raccourci pour "  SEE_POWER "."
+
+.BR DESTROY_SPEED " voir le sujet (" r4d2_get_destroy_speed ")."
+
+.BR DESTROY " raccourci pour "  DESTROY_SPEED "."
+
+.BR PULSE_COEF " coefficient de conversion entre l'intensité de pulse et la vitesse."
+
+.BR SAND_FILE " nom du fichier contenant le sable. L'image peut être aux formats XPM, XBM ou GIF."
+
+.BR SAND " raccourci pour "  SAND_FILE "."
+
+.SH OBJETS
+
+Chaque objet doit suivre le format suivant:
+.B (x,y) type team;
+
+x et y sont les coordonées, type peut valoir
+.BR akx ", " anakronox " ou " r4d2 "."
+et team le numéro de l'équipe à qui appartient cet objet au départ. Le mot
+clé 
+.B none
+signifie sauvage, et il peut être omis. Par exemple, ces trois instructions
+font la même chose:
+
+(4,2) akx 0;
+
+(4,2) akx none;
+
+(4,2) akx;
+
+
+.SH FICHIERS
+
+Des exemples se trouvent dans .I /u/others/prologin/usr/share
+
+.SH AUTEURS
+.I Equipe soft Prologin 2001:
+    Nicolas Baradakis
+    Jean-Christophe Bossu
+    Gael Le Mignot
+ 
+.SH VOIR AUSSI
+.BR "gtk-client"(1), " server"(1), " prologin"(1), " bouvier"(1)
+ 
+

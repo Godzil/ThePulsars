@@ -1,0 +1,51 @@
+.\"$Id: gtk-client.man,v 1.1 2001/05/03 15:46:50 kilobug Exp $
+.TH "gtk-client" 1 "4 Mai 2001" "Prologin" "Finale prologin 2001"
+.SH NOM
+.BR "gtk-client" " \- Client graphique pour la Finale Prologin 2001"
+
+.SH SYNOPSIS
+.BR "gtk-client" " [-h host] [-p port] [-d]"
+
+.SH DESCRIPTION
+Ce programme est une interface graphique en GTK+ permettant de suivre le 
+déroulement d'un match de la finale Prologin 2001.
+.LP
+Il existe deux modes de fonctionnement: le mode 
+.I debug 
+et le mode normal. En mode normal, le client se contente d'afficher le
+déroulement du match. En mode
+.I debug
+, il contrôle le déroulement du match (vitesse, mode pas à pas, ...)
+.LP
+Les options reconnues sont:
+
+.B -d		
+entre en mode 
+.IR "debug" "."
+
+.BI -h " host"	
+nom ou addresse IP du serveur.
+
+.BI -p " port"	
+port où le serveur écoute.
+
+.SH ENVIRONMENT
+
+La variable d'environement
+.B "PROLO_DATA_DIR"
+doit contenir le nom du répertoire contenant les fichiers de données (sprites
+et boutons).
+
+.SH BUGS
+En mode normal le client se bloque jusqu'à ce qu'un tour complet se soit 
+écoulé.
+
+.SH AUTEURS
+.I Equipe soft Prologin 2001:
+    Nicolas Baradakis
+    Jean-Christophe Bossu
+    Gael Le Mignot
+ 
+.SH VOIR AUSSI
+.BR "server"(1), " prologin"(1), " map"(5), " bouvier"(1)
+ 

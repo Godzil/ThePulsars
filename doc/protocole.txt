@@ -1,0 +1,93 @@
+Protocole Client/Serveur pour les clients graphiques:
+
+Connexion:
+  CLIENT => "HELLO 42"
+  SERVER => "HELLO 42"
+  CLIENT => VERSION
+  SERVER => OK / ERROR
+  CLIENT => TYPE
+  SERVER => OK / ERROR
+  CLIENT => ACK
+  Map
+  
+Map:
+  SERVER => SIZEX
+  SERVER => SIZEY
+  SERVER => NB_TURNS
+  SERVER => TURN_NUM
+  SERVER => NB_PLAYERS
+  SERVER => NB_R4D2
+  SERVER => NB_AKX
+  SERVER => SAND_FILE
+  CLIENT => ACK
+  Players
+  CLIENT => ACK
+  Objects  
+  CLIENT => ACK
+
+Players:
+  SERVER => "PLR"
+  SERVER => ID
+  SERVER => NAME
+  SERVER => SCORE
+
+Objects:
+  SERVER => "OBJ"
+  SERVER => ID
+  SERVER => TYPE
+  SERVER => POSX
+  SERVER => POSY
+  SERVER => TEAM_ID
+  If AKX:
+    SERVER => ACT
+    If ACT == PULSE:
+      SERVER => ANGLE
+      SERVER => TX
+      SERVER => TY
+    Endif
+    If ACT == LINK:
+      SERVER => TARGET
+    Endif
+  Endif
+
+End_match:
+  SERVER => "BYE"
+  CLIENT => ACK  
+
+Update:
+  SERVER => "TRN"
+  CLIENT => ACK
+  SERVER => TURN_ID
+  Up_players
+  SERVER => "END"
+  CLIENT => ACK
+  Up_objs
+  SERVER => "END"
+  CLIENT => ACK
+
+Up_players:
+  SERVER => "UPL"
+  SERVER => ID
+  SERVER => SCORE
+
+Up_objs:
+  SERVER => "UOB"
+  SERVER => ID
+  SERVER => POSX
+  SERVER => POSY
+  SERVER => TEAM_ID
+  If AKX:
+    SERVER => ACT
+    If ACT == PULSE:
+      SERVER => ANGLE
+      SERVER => TX
+      SERVER => TY
+    Endif
+    If ACT == LINK:
+      SERVER => TARGET
+    Endif
+  Endif
+
+Controle de tour:
+  MASTER CLIENT => "GO" / "END"
+  SERVER => ACK

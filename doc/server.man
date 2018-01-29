@@ -1,0 +1,61 @@
+.\"$Id: server.man,v 1.1 2001/05/03 15:46:50 kilobug Exp $
+.TH "server" 1 "4 Mai 2001" "Prologin" "Finale prologin 2001"
+.SH NOM
+.BR "server" " \- Server pour la finale Prologin 2001"
+
+.SH SYNOPSIS
+.BR "server" " [options] -m carte [nom1:]fichier1 ..."
+
+.SH DESCRIPTION
+Ce programme charge des librairies dynamiques (.so) contenant des champions
+et simule le Monde Des Pulsars.
+.LP
+Le liste des fichiers .so doit être passée au serveur, précédée éventuellement
+par le nom du fichier (exemple: 
+.I Drizzt:./libprolo.so
+). 
+.B Attention: 
+si le fichier se trouve dans le répertoire courant, ne pas oublier le "./".
+.LP
+Les options reconnues sont:
+
+.B -v		
+affiche un plus grand nombre de messages.
+
+.B -q		
+supprime l'affichage des clients.
+
+.BI -n " val"	
+nombre de tours que dure la partie.
+
+.BI -t " val"	
+nombre de millisecondes alloués à chaque champion par tour.
+
+.BI -g		
+accepte une connection de clients graphiques.
+
+.BI -P		
+n'accepte qu'un seul client graphique (nécessite -g).
+
+.BI -p		
+port d'écoute des clients graphiques (4242 par défaut).
+
+.\" .SH FICHIERS
+
+.\" .SH ENVIRONMENT
+
+.SH NOTES
+
+Attention: il n'est pas possible de lancer simultanément deux matchs depuis
+le même répertoire; en effet le répertoire courant est utilisé pour calculer
+la clé du segment de mémoire partagée.
+
+.SH AUTEURS
+.I Equipe soft Prologin 2001:
+    Nicolas Baradakis
+    Jean-Christophe Bossu
+    Gael Le Mignot
+ 
+.SH VOIR AUSSI
+.BR "gtk-client"(1), " prologin"(1), " map"(5), " bouvier"(1), " ipcs"(1)
+ 

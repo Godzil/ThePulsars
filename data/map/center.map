@@ -1,0 +1,73 @@
+/* $Id: center.map,v 1.2 2001/05/06 08:37:02 kilobug Exp $ */
+/* The funky map by Kilobug */
+
+
+[ header ]
+
+NB_OBJECTS = 45;
+SIZE_X 	= 200.0;
+SIZE_Y 	= 200.0;
+PULSE_POWER = 350.0;
+PULSE_COEF = 0.07;
+DESTROY_SPEED = -5.0;
+
+[ objects ]
+
+/* Unites au centre */
+(80, 90) akx 1;
+(80, 110) akx 1;
+(120, 90) akx 2;
+(120, 110) akx 2;
+(90, 80) akx 3;
+(110, 80) akx 3;
+(90, 120) akx 4;
+(110, 120) akx 4;
+
+(81, 100) r4d2 1;
+(79, 100) r4d2 1;
+(5, 100) r4d2 1;
+(119, 100) r4d2 2;
+(121, 100) r4d2 2;
+(195, 100) r4d2 2;
+(100, 81) r4d2 3;
+(100, 79) r4d2 3;
+(100, 5) r4d2 3;
+(100, 121) r4d2 4;
+(100, 119) r4d2 4;
+(100, 195) r4d2 4;
+
+/* Sauvages */
+
+(100, 100) akx none;
+(0, 0) akx none;
+(200, 200) akx none;
+(0, 200) akx none;
+(200, 0) akx none;
+
+(25, 25) akx none;
+(60, 40) akx none;
+(90, 50) akx none;
+(110, 50) akx none;
+(140, 40) akx none;
+(175, 25) akx none;
+
+# (25, 25) akx none;   Deja mis plus haut
+(40, 60) akx none;
+(50, 90) akx none;
+(50, 110) akx none;
+(40, 140) akx none;
+(25, 175) akx none;
+
+# (25, 175) akx none;   Deja mis plus haut
+(60, 160) akx none;
+(90, 150) akx none;
+(110, 150) akx none;
+(140, 160) akx none;
+(175, 175) akx none;
+
+# (175, 175) akx none;   Deja mis plus haut
+(160, 140) akx none;
+(150, 110) akx none;
+(150, 90) akx none;
+(160, 60) akx none;
+# (175, 25) akx none; Deja mis plus haut

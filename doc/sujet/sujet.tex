@@ -1,0 +1,1018 @@
+% LaTeX 2e document
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{a4}
+\usepackage{indentfirst}
+\usepackage[a4paper,dvips]{geometry}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\geometry{tmargin=35mm,bmargin=30mm,lmargin=30mm,rmargin=30mm}
+
+\newcommand{\api}[1]{%
+   \item[\textbullet] \texttt{#1} \addcontentsline{toc}{subsubsection}{\textit{#1}}%
+}
+
+\newcommand{\itemb}{%
+   \item[\textbullet]%
+}
+
+\begin{document}
+\begin{titlepage}
+
+\begin{center}
+
+~\\
+\vspace{1cm}
+
+\includegraphics[height=7cm]{prolo.eps}
+
+\vspace{3cm}
+
+\huge
+Sujet finale Prologin : \textbf{Les Pulsars}
+
+\vspace{3cm}
+
+\Huge
+Equipe Soft Prologin
+\end{center}
+
+\end{titlepage}
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Introduction}
+
+Nous sommes en l'année 5142, sur la planète \textit{Xilihp}, la guerre fait
+rage, les différentes nations se battent 36 heures sur 36.
+
+\subsection{La planète}
+
+Cette planète est rectangulaire, enfin le seul continent habitable,
+est rectangulaire.\\
+
+Leurs technologies évoluaient à une vitesse fulgurante, jusqu'au jour
+où ils découvrent la technologie Anakronox. Cette technologie leur
+permet de créer des tanks surpuissants.
+
+\subsection{Les Anakronox}
+
+Les Anakronox sont des tanks surpuissants, émettant des radiations
+sur une certaine zone, suivant une distance et un angle définissant un 
+arc de cercle.\\
+
+Ces radiations sont si puissantes que seuls les Anakronox en sont protégés,
+aucune espèce vivante ne peut rester à la surface de la planète.\\
+
+Très vite la guerre se transforma en guerre à distance, où les commandants
+sont enfouis dans des bunkers souterrains.\\
+
+Cependant un problème se pose puisque le contrôle des Anakronox se
+fait par fréquences radio, et celles-ci peuvent être modifiées.\\
+
+Pour cela il fut inventé des robots spécialisés dans la configuration
+des Anakronox.
+
+\subsection{Les R4D2}
+
+Les R4D2 sont des robots mobiles permettant de modifier la configuration
+de communication des machines modernes (Anakronox, R4D2, ...).\\
+
+Ces robots sont plutôt résistants, mais lorsque ils sont irradiés par
+des Anakronox ennemis, leur vitesse de déplacement diminue de plus en
+plus à cause du champ de force qui les repousse. Si le champ est trop
+intense, dans un premier temps ils vont rester bloqués,
+et si le champ de force ennemi est ultra-puissant, les R4D2 explosent.\\
+
+Comme les R4D2 sont contrôlés par fréquence radio, les commandants se
+sont aperçus qu'ils pouvaient prendre le contrôle des R4D2 ennemis
+grâce à leurs propres R4D2.
+
+\subsection{Pour la liberté!}
+
+Vous êtes le commandant de l'armée de votre nation, et vous devez
+permettre à votre peuple de recommencer une vie à la surface.\\
+
+Pour cela, vous devez contrôler une zone, la plus grande possible, pour
+que votre peuple puisse sortir en toute sécurité. Le vainqueur sera
+donc la nation qui contrôlera le plus d'Anakronox.
+
+\section{Présentation de l'interface de communication}
+
+Pour communiquer avec vos unités, vous disposez d'une interface de 
+communication.
+
+\subsection{Les satellites radars}
+
+Les satellites radars vous permettent de rechercher des unités amies ou
+ennemies sur la planète.\\
+
+Ces satellites ont été envoyés avant la découverte des Anakronox, les
+perturbations crées par les radiations bloquent la vision des radars.
+Les chercheurs ont fini par trouver une solution : régler les radars
+sur la fréquence des radiations propres à votre nation.\\
+
+Problème, si un ennemi irradie une zone, votre visibilité sera réduite.
+
+\subsection{Les Anakronox}
+
+Vous disposez de commandes de contrôle pour diriger vos Anakronox.\\
+
+Vous pouvez :
+\begin{itemize}
+\item Déplacer
+\item Pulser : irradier une zone
+\item Linker : transmettre l'énergie d'un Anakronox à un autre\\
+\end{itemize}
+
+Bien sûr à un instant \textit{t}, un Anakronox ne peut effectuer qu'une
+de ces actions à la fois.
+
+\subsection{Les R4D2}
+
+Vous disposez de commandes de contrôles pour diriger vos R4D2.\\
+
+Vous pouvez :
+\begin{itemize}
+\item Déplacer
+\item Prendre le contrôle d'un Anakronox
+\item Prendre le contrôle d'un R4D2\\
+\end{itemize}
+
+Bien sûr à un instant \textbf{t}, un R4D2 ne peut effectuer qu'une
+seule de ces actions à la fois.
+
+\section{Coding or not coding, that is the question?}
+
+La salle de contrôle est dans une zone irradiée, donc vous ne 
+pourrez accédez à cette salle que trente-six heures.\\
+
+Vous devrez faire un programme assurant le contrôle automatique de vos 
+unités, et vous faire decontaminer par la suite en vous faisant
+copieusement asperger d'un antidote connu sous le nom de monoxyde
+de dihydrogène.\\
+
+Le système d'exploitation sur cet ordinateur vous fournit une 
+API (Application Program Interface) qui permet cette gestion.
+
+\subsection{API Système}
+
+L'API de l'ordinateur contient une API système, qui assure
+la gestion système de votre programme.\\
+
+La gestion des identifiants par le système est faite de la façon suivante :
+\begin{itemize}
+\item[\textbullet] $< 0$ : toutes les nations sauf la nation -ID (ex : ID=-5 pour toutes les
+nations sauf la nation 5)
+\item[\textbullet] $0$ : nation sauvage (neutre)
+\item[\textbullet] $> 0$ : nation ayant pour identifiant ID\\
+\end{itemize}
+
+La nation sauvage désigne des Anakronox abandonnés sur le champ de
+bataille lors de la dernière guerre. Ces unités ne font rien, et
+peuvent être capturées sans résistance.\\
+
+Le système appellera votre programme régulièrement. Vous lui précisez
+les actions à faire exécuter, par l'intermédiaire de 4 fonctions que
+vous devrez écrire :\\
+
+\begin{itemize}
+  \api{player\_init} reçoit un entier correspondant à votre identifiant
+de nation, et est appelé à l'initialisation de votre programme :\\
+	\begin{itemize}
+	\item	C/C++	: void player\_init(int team\_id)
+	\item	CPP 	: void Player::Init(int team\_id)
+	\item	PAS 	: procedure player\_init(team\_id : integer)
+	\item	CAML 	: let player\_init n =
+	\item	JAVA 	: void Prolo.Init(int team\_id)\\
+	\end{itemize}
+
+\api{player\_new\_turn} reçoit un entier correspondant au numéro du 
+tour en cour, et est appelé au début de chaque tour(sauf le tour 0 
+$\rightarrow$ init) :\\
+	\begin{itemize}
+	\item	C/C++	: void player\_new\_turn(int turn\_number)
+	\item	CPP 	: void Player::NewTurn(int turn\_number)
+	\item	PAS 	: procedure player\_new\_turn(turn\_number : integer)
+	\item	CAML 	: let player\_new\_turn n =
+	\item	JAVA 	: void Prolo.NewTurn(int turn\_number)\\
+	\end{itemize}
+
+\api{player\_akx\_turn} reçoit un entier correspondant au numéro de
+l'Anakronox en cours, et est appelé au début de chaque tour pour chacun de vos
+Anakronox (sauf le tour 0 $\rightarrow$ init) :\\
+	\begin{itemize}
+	\item	C/C++	: void player\_akx\_turn(int akx\_id)
+	\item	CPP 	: void Player::AkxTurn(int akx\_id)
+	\item	PAS 	: procedure player\_akx\_turn(akx\_id : integer)
+	\item	CAML 	: let player\_akx\_turn n =
+	\item	JAVA 	: void Prolo.AkxTurn(int akx\_id)\\
+	\end{itemize}
+
+\api{player\_r4d2\_turn} reçoit un entier correspondant au numéro du
+r4d2 en cours, et est appelé au debut de chaque tour pour chacun de vos
+r4d2 (sauf le tour 0 $\rightarrow$ init) :\\
+	\begin{itemize}
+	\item	C/C++	: void player\_r4d2\_turn(int akx\_id)
+	\item	CPP 	: void Player::R4d2Turn(int akx\_id)
+	\item	PAS 	: procedure player\_r4d2\_turn(akx\_id : integer)
+	\item	CAML 	: let player\_r4d2\_turn n =
+	\item	JAVA 	: void Prolo.R4d2Turn(int akx\_id)\\
+	\end{itemize}
+
+\end{itemize}
+
+Le système décompose le temps sous forme de tours, et vous permet de connaître
+le numéro du tour en cours. De plus il vous permet de connaître le numéro
+du tour ou sera décrêté le cessez-le-feu :\\
+
+\begin{itemize}
+\api{turn\_number} renvoie le nombre de tour total, du début jusqu'au 
+cessez-le-feu :\\
+	\begin{itemize}
+	\item	C/C++	: int turn\_number()
+	\item	CPP 	: int General::TurnNumber()
+	\item	PAS 	: function turn\_number : integer
+	\item	CAML 	: turn\_number : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jTurnNumber()\\
+	\end{itemize}
+
+\api{turn\_counter} renvoie le numéro du tour en cours :\\
+	\begin{itemize}
+	\item	C/C++	: int turn\_counter()
+	\item	CPP 	: int General::TurnCounter()
+ 	\item	PAS 	: function turn\_counter : integer
+	\item	CAML 	: turn\_counter : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jTurnCounter()\\
+	\end{itemize}
+
+\end{itemize}
+
+L'intervalle entre deux tours est constant, donc votre programme doit
+finir l'exécution du tour avant la fin de ce temps. Si vous dépassez
+le délai autorisé, votre programme sera interrompu puis réinitialisé 
+au tour suivant.\\
+
+Vous disposez d'une fonction vous donnant le temps restant (en
+millisecondes) avant la fin du tour.\\
+
+\begin{itemize}
+\api{time\_get\_left} renvoie le temps en millisecondes restant avant
+la fin du tour :\\
+	\begin{itemize}
+	\item	C/C++	: int time\_get\_left()
+	\item	CPP 	: int General::TimeGetLeft()
+ 	\item	PAS 	: function time\_get\_left : integer
+	\item	CAML 	: time\_get\_left : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jTimeGetLeft()\\
+	\end{itemize}
+
+\end{itemize}
+
+Pour connaître une estimation de la puissance de votre nation, le système
+vous fournit une fonction :\\
+
+\begin{itemize}
+\api{score\_get} renvoie le score de votre nation. Le score est
+	calculé en fonction du nombre d'Anakronox et de R4D2 que vous
+	possédez.\\
+
+	\begin{itemize}
+	\item	C/C++	: int score\_get()
+	\item	CPP 	: int General::ScoreGet()
+ 	\item	PAS 	: function score\_get : integer
+	\item	CAML 	: score\_get : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jScoreGet()\\
+	\end{itemize}
+
+\end{itemize}
+
+Vos appels à l'API peuvent provoquer des erreurs, pour cela il existe
+une fonction vous permettant de connaître la dernière erreur qui s'est 
+produite :\\
+
+\begin{itemize}
+\api{error\_get} renvoie la dernière erreur de votre programme :\\
+	\begin{itemize}
+	\item	C/C++	: int error\_get()
+	\item	CPP 	: int General::ErrorGet()
+ 	\item	PAS 	: function error\_get : integer
+	\item	CAML 	: error\_get : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jErrorGet()\\
+	\end{itemize}
+
+\end{itemize}
+
+Une fonction de l'API ayant détecté une erreur renvoie -1 (ou -1.0 en
+flottant), l'erreur renvoyée par cette fonction correspond à une de
+ces valeurs :\\
+
+\begin{enumerate}
+\item[0] : pas d'erreur
+\item[1] : l'unité voulue n'est pas à vous
+\item[2] : l'unité voulue n'est pas visible
+\item[3] : l'identifiant ne correspond pas
+\item[4] : la position n'est pas valide
+\item[5] : erreur dans le type d'unité
+\item[6] : cible invalide
+\item[7] : unité détruite
+\end{enumerate}
+
+\subsection{API R4D2}
+
+Le système affecte des identifiants aux unités (R4D2 et Anakronox) qu'il
+utilise dans l'API pour définir les cibles des appels de fonction.\\
+
+Le système vous fournit une API permettant la gestion des R4D2, vous permettant
+d'obtenir des informations ou de faire exécuter des actions aux R4D2 :\\
+
+\begin{itemize}
+\api{r4d2\_get\_team} renvoie l'identifiant de la nation du r4d2
+passé en paramètre :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_get\_team(int r4d2\_id)
+	\item	CPP 	: int R4D2::GetTeam(int r4d2\_id)
+ 	\item	PAS 	: function r4d2\_get\_team(r4d2\_id : integer) : integer
+	\item	CAML 	: r4d2\_get\_team : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2GetTeam(int r4d2\_id)\\
+	\end{itemize}
+
+\api{r4d2\_get\_pos\_x} renvoie la position sur l'axe horizontal du
+r4d2 demandé :\\
+	\begin{itemize}
+	\item	C/C++	: float r4d2\_get\_pos\_x(int r4d2\_id)
+	\item	CPP 	: float R4D2::GetPosX(int r4d2\_id)
+ 	\item	PAS 	: function r4d2\_get\_pos\_x(r4d2\_id : integer) : single
+	\item	CAML 	: r4d2\_get\_pos\_x : int $\rightarrow$ double
+	\item	JAVA 	: int Prolo.jR4d2GetPosX(int r4d2\_id)\\
+	\end{itemize}
+
+\api{r4d2\_get\_pos\_y} renvoie la position sur l'axe verticale du
+r4d2 demandé :\\
+	\begin{itemize}
+	\item	C/C++	: float r4d2\_get\_pos\_y(int r4d2\_id)
+	\item	CPP 	: float R4D2::GetPosY(int r4d2\_id)
+ 	\item	PAS 	: function r4d2\_get\_pos\_y(r4d2\_id : integer) : single
+	\item	CAML 	: r4d2\_get\_pos\_y : int $\rightarrow$ double
+	\item	JAVA 	: int Prolo.jR4d2GetPosY(int r4d2\_id)\\
+	\end{itemize}
+
+\api{r4d2\_get\_status} renvoie l'etat du r4d2 demande :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_get\_status(int r4d2\_id)
+	\item	CPP 	: int R4D2::GetStatus(int r4d2\_id)
+ 	\item	PAS 	: function r4d2\_get\_status(r4d2\_id : integer) : integer
+	\item	CAML 	: r4d2\_get\_status : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2GetStatus(int r4d2\_id)\\
+	\end{itemize}
+
+	Les états du r4d2 sont donnés de la façon suivante :
+	\begin{enumerate}
+	\item[0]: déplacement ou inactif
+	\item[1]: capture d'un r4d2
+	\item[2]: capture d'un Anakronox\\
+	\end{enumerate}
+
+\api{r4d2\_get\_speed} renvoie la vitesse de base des r4d2 :\\
+	\begin{itemize}
+	\item	C/C++	: float r4d2\_get\_speed()
+	\item	CPP 	: float R4D2::GetSpeed()
+ 	\item	PAS 	: function r4d2\_get\_speed : single
+	\item	CAML 	: r4d2\_get\_speed : int $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jR4d2GetSpeed()\\
+	\end{itemize}
+
+\api{r4d2\_get\_destroy\_speed} renvoie la force opposée au mouvement des 
+R4D2 en dessous de laquelle l'unité R4D2 explose. Cette force est calculée 
+de la manière que la vitesse (voir \ref{vitesse}, \pageref{vitesse})\\
+	\begin{itemize}
+	\item	C/C++	: float r4d2\_get\_destroy\_speed()
+	\item	CPP 	: float R4D2::GetDestroySpeed()
+ 	\item	PAS 	: function r4d2\_get\_destroy\_speed : single
+	\item	CAML 	: r4d2\_get\_destroy\_speed : int $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jR4d2GetDestroySpeed()\\
+	\end{itemize}
+        En général, le résultat retourné est une valeur négative.\\
+
+\api{r4d2\_turn\_take\_r4d2} renvoie le nombre de tours nécessaires
+pour capturer un r4d2 sauvage :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_turn\_take\_r4d2()
+	\item	CPP 	: int R4D2::TurnTakeR4d2()
+ 	\item	PAS 	: function r4d2\_turn\_take\_r4d2 : integer
+	\item	CAML 	: r4d2\_turn\_take\_r4d2 : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2TurnTakeR4d2()\\
+	\end{itemize}
+
+\api{r4d2\_turn\_untake\_r4d2} renvoie le nombre de tours
+	supplémentaires si le r4d2 à capturer appartient à l'ennemi :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_turn\_untake\_r4d2()
+	\item	CPP 	: int R4D2::TurnUntakeR4d2()
+ 	\item	PAS 	: function r4d2\_turn\_untake\_r4d2 : integer
+	\item	CAML 	: r4d2\_turn\_untake\_r4d2 : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2TurnUntakeR4d2()\\
+	\end{itemize}
+
+\api{r4d2\_turn\_take\_akx} renvoie le nombre de tours nécessaires
+pour capturer un Anakronox sauvage :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_turn\_take\_akx()
+	\item	CPP 	: int R4D2::TurnTakeAkx()
+ 	\item	PAS 	: function r4d2\_turn\_take\_akx : integer
+	\item	CAML 	: r4d2\_turn\_take\_akx : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2TurnTakeAkx()\\
+	\end{itemize}
+
+\api{r4d2\_turn\_untake\_akx} renvoie le nombre de tours
+	supplémentaires si l'Anakronox  à capturer appartient à l'ennemi :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_turn\_untake\_akx()
+	\item	CPP 	: int R4D2::TurnUntakeAkx()
+ 	\item	PAS 	: function r4d2\_turn\_untake\_akx : integer
+	\item	CAML 	: r4d2\_turn\_untake\_akx : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2TurnUntakeAkx()\\
+	\end{itemize}
+
+\api{r4d2\_move} donne un ordre de déplacement, vers une destination,
+au r4d2 voulu :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_move(int r4d2\_id, float destx, float desty)
+	\item	CPP 	: int R4D2::Move(int r4d2\_id, float destx, float desty)
+ 	\item	PAS 	: function r4d2\_move(r4d2\_id : integer; destx, desty : single) : integer
+	\item	CAML 	: r4d2\_move : int $\rightarrow$ double $\rightarrow$ double $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2Move(int r4d2\_id, float destx, float desty)\\
+	\end{itemize}
+
+	Une fois que l'on a donné à un R4D2 l'ordre de se déplacer, il
+	continue d'aller vers sa destination aux tours suivants sauf
+	ordre contraire.\\
+
+\api{r4d2\_take\_r4d2} donne un ordre de capture d'un r4d2 :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_take\_r4d2(int r4d2\_id, int target\_id)
+	\item	CPP 	: int R4D2::TakeR4d2(int r4d2\_id, int target\_id)
+ 	\item	PAS 	: function r4d2\_take\_r4d2(r4d2\_id, target\_id : integer) : integer
+	\item	CAML 	: r4d2\_take\_r4d2 : int $\rightarrow$ int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2TakeR4d2(int r4d2\_id, int target\_id)\\
+	\end{itemize}
+	La capture est possible seulement si la distance entre les R4D2 est 
+	inférieure à 1.\\
+
+\api{r4d2\_take\_akx} donne un ordre de capture d'un Anakronox :\\
+	\begin{itemize}
+	\item	C/C++	: int r4d2\_take\_akx(int r4d2\_id, int target\_id)
+	\item	CPP 	: int R4D2::TakeAkx(int akx\_id, int target\_id)
+ 	\item	PAS 	: function r4d2\_take\_akx(akx\_id, target\_id : integer) : integer
+	\item	CAML 	: r4d2\_take\_akx : int $\rightarrow$ int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jR4d2TakeAkx(int r4d2\_id, int target\_id)\\
+	\end{itemize}
+	La capture est possible seulement si la distance entre le R4D2 et 
+	l'Anakronox est inférieure à 1.
+\end{itemize}
+
+\subsection{API Anakronox}
+
+Le système vous fournit une API permettant la gestion des Anakronox, vous 
+permettant d'obtenir des informations ou de faire exécuter des actions 
+aux Anakronox :\\
+
+\begin{itemize}
+\api{akx\_get\_team} renvoie l'identifiant de nation de l'Anakronox
+passé en paramètre :\\
+	\begin{itemize}
+	\item	C/C++	: int akx\_get\_team(int akx\_id)
+	\item	CPP 	: int Akx::GetTeam(int akx\_id)
+ 	\item	PAS 	: function akx\_get\_team(akx\_id : integer) : integer
+	\item	CAML 	: akx\_get\_team : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jAkxGetTeam(int akx\_id)\\
+	\end{itemize}
+
+\api{akx\_get\_pos\_x} renvoie la position sur l'axe horizontal de
+l'Anakronox demandé :\\
+	\begin{itemize}
+	\item	C/C++	: float akx\_get\_pos\_x(int akx\_id)
+	\item	CPP 	: float Akx::GetPosX(int akx\_id)
+ 	\item	PAS 	: function akx\_get\_pos\_x(akx\_id : integer) : single
+	\item	CAML 	: akx\_get\_pos\_x : int $\rightarrow$ double
+	\item	JAVA 	: int Prolo.jAkxGetPosX(int akx\_id)\\
+	\end{itemize}
+
+\api{akx\_get\_pos\_y} renvoie la position sur l'axe vertical de 
+l'Anakronox demandé :\\
+	\begin{itemize}
+	\item	C/C++	: float akx\_get\_pos\_y(int akx\_id)
+	\item	CPP 	: float Akx::GetPosY(int akx\_id)
+ 	\item	PAS 	: function akx\_get\_pos\_y(akx\_id : integer) : single
+	\item	CAML 	: akx\_get\_pos\_y : int $\rightarrow$ double
+	\item	JAVA 	: int Prolo.jAkxGetPosY(int akx\_id)\\
+	\end{itemize}
+
+\api{akx\_get\_status} renvoie l'état de l'Anakronox demandé :\\
+	\begin{itemize}
+	\item	C/C++	: int akx\_get\_status(int akx\_id)
+	\item	CPP 	: int Akx::GetStatus(int akx\_id)
+ 	\item	PAS 	: function akx\_get\_status(akx\_id : integer) : integer
+	\item	CAML 	: akx\_get\_status : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jAkxGetStatus(int akx\_id)\\
+	\end{itemize}
+
+	Les états de l'Anakronox sont donnés de la façon suivante :
+	\begin{enumerate}
+	\item[0]: déplacement ou inactif
+	\item[1]: pulse sur une zone
+	\item[2]: link vers un autre Anakronox\\
+	\end{enumerate}
+
+\api{akx\_pulse\_angle} renvoie l'angle d'ouverture de l'Anakronox demandé :\\
+	\begin{itemize}
+	\item	C/C++	: float akx\_pulse\_angle(int akx\_id)
+	\item	CPP 	: float Akx::PulseAngle(int akx\_id)
+ 	\item	PAS 	: function akx\_pulse\_angle(akx\_id : integer) : single
+	\item	CAML 	: akx\_pulse\_angle : int $\rightarrow$ double
+	\item	JAVA 	: int Prolo.jAkxPulseAngle(int akx\_id)\\
+	\end{itemize}
+
+\api{akx\_pulse\_destx} renvoie la destination X de tir de l'Anakronox demandé :\\
+	\begin{itemize}
+	\item	C/C++	: float akx\_pulse\_destx(int akx\_id)
+	\item	CPP 	: float Akx::PulseDestX(int akx\_id)
+ 	\item	PAS 	: function akx\_pulse\_destx(akx\_id : integer) : single
+	\item	CAML 	: akx\_pulse\_destx : int $\rightarrow$ double
+	\item	JAVA 	: int Prolo.jAkxPulseDestX(int akx\_id)\\
+	\end{itemize}
+
+\api{akx\_pulse\_desty} renvoie la destination Y de tir de l'Anakronox demandé :\\
+	\begin{itemize}
+	\item	C/C++	: float akx\_pulse\_desty(int akx\_id)
+	\item	CPP 	: float Akx::PulseDestY(int akx\_id)
+ 	\item	PAS 	: function akx\_pulse\_desty(akx\_id : integer) : single
+	\item	CAML 	: akx\_pulse\_desty : int $\rightarrow$ double
+	\item	JAVA 	: int Prolo.jAkxPulseDestY(int akx\_id)\\
+	\end{itemize}
+
+\api{akx\_get\_speed} renvoie la vitesse de base des Anakronox :\\
+	\begin{itemize}
+	\item	C/C++	: float akx\_get\_speed()
+	\item	CPP 	: float Akx::GetSpeed()
+ 	\item	PAS 	: function akx\_get\_speed : single
+	\item	CAML 	: akx\_get\_speed : int $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jAkxGetSpeed()\\
+	\end{itemize}
+
+\api{akx\_get\_power} renvoie la puissance de base des Anakronox :\\
+	\begin{itemize}
+	\item	C/C++	: float akx\_get\_power()
+	\item	CPP 	: float Akx::GetPower()
+ 	\item	PAS 	: function akx\_get\_power : single
+	\item	CAML 	: akx\_get\_power : int $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jAkxGetPower()\\
+	\end{itemize}
+	C'est la quantité d'énergie minimum que les Anakronox
+	contiennent au début d'un tour.\\
+
+\api{akx\_pulse\_coef} renvoie le coefficient d'affectation
+de vitesse de l'intensité de pulse :\\
+	\begin{itemize}
+	\item	C/C++	: int akx\_pulse\_coef()
+	\item	CPP 	: int Akx::PulseCoef()
+ 	\item	PAS 	: function akx\_pulse\_coef : integer
+	\item	CAML 	: akx\_pulse\_coef : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jAkxPulseCoef()\\
+	\end{itemize}
+
+\api{akx\_see\_power} renvoie la puissance nécessaire pour
+que vos satellites puissent voir une zone :\\
+	\begin{itemize}
+	\item	C/C++	: int akx\_see\_power()
+	\item	CPP 	: int Akx::SeePower()
+ 	\item	PAS 	: function akx\_see\_power : integer
+	\item	CAML 	: akx\_see\_power : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jAkxSeePower()\\
+	\end{itemize}
+
+\api{akx\_move} donne un ordre de déplacement, vers une destination,
+à l'Anakronox voulu :\\
+	\begin{itemize}
+	\item	C/C++	: int akx\_move(int akx\_id, float destx, float desty)
+	\item	CPP 	: int Akx::Move(int akx\_id, float destx, float desty)
+ 	\item	PAS 	: function akx\_move(akx\_id : integer; destx, desty : single) : integer
+	\item	CAML 	: akx\_move : int $\rightarrow$ double $\rightarrow$ double $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jAkxMove(int akx\_id, float destx, float desty)\\
+	\end{itemize}
+
+	Une fois que l'on a donné à un Anakronox l'ordre de se
+	déplacer, il continue d'aller vers sa destination aux tours
+	suivants sauf ordre contraire.\\
+
+\api{akx\_pulse} donne un ordre de pulse à un Anakronox :\\
+	\begin{itemize}
+	\item	C/C++	: int akx\_pulse(int akx\_id, float destx, float desty, float angle)
+	\item	CPP 	: int Akx::TakeAkx(int akx\_id, float destx, float desty, float angle)
+ 	\item	PAS 	: function akx\_take\_akx(akx\_id : integer;destx, desty, angle : single) : integer
+	\item	CAML 	: akx\_take\_akx : int $\rightarrow$ double$\rightarrow$ double$\rightarrow$ double $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jAkxTakeAkx(int akx\_id, float destx, float desty, float angle)\\
+	\end{itemize}
+
+	Les pulsions d'un Anakronox irradient un arc de cercle avec
+pour centre l'Anakronox, pour rayon la distance entre l'Anakronox et
+la destination et pour angle d'ouverture l'angle spécifié lors de
+l'appel.\\
+
+\api{akx\_link} donne un ordre de transfert d'énergie d'un Anakronox 
+vers en autre Anakronox :\\
+	\begin{itemize}
+	\item	C/C++	: int akx\_link(int akx\_id, int target\_id)
+	\item	CPP 	: int Akx::Link(int akx\_id, int target\_id)
+ 	\item	PAS 	: function akx\_link(akx\_id, target\_id : integer) : integer
+	\item	CAML 	: akx\_link : int $\rightarrow$ int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jAkxLink(int akx\_id, int target\_id)\\
+	\end{itemize}
+
+	Après le transfert, l'Anakronox cible va emmagasiner l'énergie
+	supplémentaire jusqu'à la prochaine commande \texttt{pulse}\\
+
+\end{itemize}
+
+\subsection{API Satellite}
+
+Le système utilise une carte symbolique continue pour représenter la
+planète en interne, c.à.d. qu'une position n'est pas un couple
+d'entiers mais un couple de nombres à virgule (ex : $(1.2563566 ;
+25.2135135)$) représentant la latitude(X) et la longitude(Y) de ce
+point.\\
+
+Le système vous fournit une API permettant la gestion des satellites,
+vous permettant d'obtenir des informations sur la carte du monde
+(unités, états, ...) :\\
+
+Les renseignements renvoyés par les fonctions de l'API satellite
+dépendent du champ de vision de vos Anakronox sauf :
+\texttt{map\_get\_size\_x, map\_get\_size\_y, map\_count\_akx,
+map\_count\_r4d2, map\_count\_my\_akx et map\_count\_my\_r4d2}.\\
+
+\begin{itemize}
+\api{map\_get\_size\_x} renvoie la taille en X de la carte :\\
+	\begin{itemize}
+	\item	C/C++	: float map\_get\_size\_x()
+	\item	CPP 	: float Map::GetSizeX()
+ 	\item	PAS 	: function map\_get\_size\_x : single
+	\item	CAML 	: map\_get\_size\_x : int $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jMapGetSizeX()\\
+	\end{itemize}
+
+\api{map\_get\_size\_y} renvoie la taille en Y de la carte :\\
+	\begin{itemize}
+	\item	C/C++	: float map\_get\_size\_y()
+	\item	CPP 	: float Map::GetSizeY()
+ 	\item	PAS 	: function map\_get\_size\_y : single
+	\item	CAML 	: map\_get\_size\_y : int $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jMapGetSizeY()\\
+	\end{itemize}
+
+\api{map\_get\_pulse} renvoie l'intensité des radiations pour un 
+point et une équipe (ou groupe d'équipes) donnés :\\
+	\begin{itemize}
+	\item	C/C++	: float map\_get\_pulse(int team\_id, float x, float y)
+	\item	CPP 	: float Map::GetPulse(int team\_id, float x, float y)
+ 	\item	PAS 	: function map\_get\_pulse(team\_id : integer;x, y : single) : single
+	\item	CAML 	: map\_get\_pulse : int $\rightarrow$ double $\rightarrow$ double $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jMapGetPulse(int team\_id, float x, float y)\\
+	\end{itemize}
+
+\api{map\_get\_pulse\_id} renvoie l'intensité des radiations pour un 
+point et un Anakronox donnés :\\
+	\begin{itemize}
+	\item	C/C++	: float map\_get\_pulse\_id(int akx\_id, float x, float y)
+	\item	CPP 	: float Map::GetPulseId(int akx\_id, float x, float y)
+ 	\item	PAS 	: function map\_get\_pulse\_id(akx\_id : integer;x, y : single) : single
+	\item	CAML 	: map\_get\_pulse\_id : int $\rightarrow$ double $\rightarrow$ double $\rightarrow$ double
+	\item	JAVA 	: float Prolo.jMapGetPulseId(int akx\_id, float x, float y)\\
+	\end{itemize}
+
+\api{map\_count\_akx} renvoie le nombre total d'Anakronox sur la 
+carte (y compris les Anakronox hors de votre champ de vision !) :\\
+	\begin{itemize}
+	\item	C/C++	: int map\_count\_akx()
+	\item	CPP 	: int Map::CountAkx()
+ 	\item	PAS 	: function map\_count\_akx : integer
+	\item	CAML 	: map\_count\_akx : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapCountAkx()\\
+	\end{itemize}
+
+\api{map\_count\_r4d2} renvoie le nombre total de R4D2 sur la 
+carte (y compris les r4d2 hors de votre champ de vision !):\\
+	\begin{itemize}
+	\item	C/C++	: int map\_count\_r4d2()
+	\item	CPP 	: int Map::CountR4d2()
+ 	\item	PAS 	: function map\_count\_r4d2 : integer
+	\item	CAML 	: map\_count\_r4d2 : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapCountR4d2()\\
+	\end{itemize}
+
+\api{map\_count\_my\_akx} renvoie le nombre d'Anakronox de votre nation sur la 
+carte :\\
+	\begin{itemize}
+	\item	C/C++	: int map\_count\_my\_akx()
+	\item	CPP 	: int Map::CountMyAkx()
+ 	\item	PAS 	: function map\_count\_my\_akx : integer
+	\item	CAML 	: map\_count\_my\_akx : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapCountMyAkx()\\
+	\end{itemize}
+
+\api{map\_count\_my\_r4d2} renvoie le nombre de R4D2 de votre nation :\\
+	\begin{itemize}
+	\item	C/C++	: int map\_count\_my\_r4d2()
+	\item	CPP 	: int Map::CountMyR4d2()
+ 	\item	PAS 	: function map\_count\_my\_r4d2 : integer
+	\item	CAML 	: map\_count\_my\_r4d2 : int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapCountMyR4d2()\\
+	\end{itemize}
+
+\api{map\_get\_nearest\_akx\_plot} renvoie l'Anakronox, de la nation 
+spécifiée, le plus proche du point voulu :\\
+	\begin{itemize}
+	\item	C/C++	: int map\_get\_nearest\_akx\_plot(float x, float y, int team\_id)
+	\item	CPP 	: int Map::GetNearestAkxPlot(float destx, float desty, int team\_id)
+ 	\item	PAS 	: function map\_get\_nearest\_akx\_plot(destx, desty : single; team\_id : integer) : integer
+	\item	CAML 	: map\_get\_nearest\_nearest\_akx\_plot : double $\rightarrow$ double $\rightarrow$ int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapGetNearestAkxPlot(float destx, float desty, int team\_id)\\
+	\end{itemize}
+
+\api{map\_get\_nearest\_r4d2\_plot} renvoie le R4D2, de la nation spécifiée, 
+le plus proche du point voulu :\\
+	\begin{itemize}
+	\item	C/C++	: int map\_get\_nearest\_r4d2\_plot(float x, float y, int team\_id)
+	\item	CPP 	: int Map::GetNearestR4d2Plot(float destx, float desty, int team\_id)
+ 	\item	PAS 	: function map\_get\_nearest\_r4d2\_plot(destx, desty : single; team\_id : integer) : integer
+	\item	CAML 	: map\_get\_nearest\_nearest\_r4d2\_plot : double $\rightarrow$ double $\rightarrow$ int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapGetNearestR4d2Plot(float destx, float desty, int team\_id)\\
+	\end{itemize}
+
+\api{map\_get\_nearest\_akx} renvoie l'Anakronox, de la nation spécifiée, 
+le plus proche de l'unité voulue :\\
+	\begin{itemize}
+	\item	C/C++	: int map\_get\_nearest\_akx(int id, int team\_id)
+	\item	CPP 	: int Map::GetNearestAkx(int id, int team\_id)
+ 	\item	PAS 	: function map\_get\_nearest\_akx(id, team\_id : integer) : integer
+	\item	CAML 	: map\_get\_nearest\_nearest\_akx : int $\rightarrow$ int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapGetNearestAkxPlot(int id, int team\_id)\\
+	\end{itemize}
+
+\api{map\_get\_nearest\_r4d2} renvoie le R4D2, de la nation spécifiée, 
+le plus proche de l'unité voulue :\\
+	\begin{itemize}
+	\item	C/C++	: int map\_get\_nearest\_r4d2(int id, int team\_id)
+	\item	CPP 	: int Map::GetNearestR4d2(int id, int team\_id)
+ 	\item	PAS 	: function map\_get\_nearest\_r4d2(id, team\_id : integer) : integer
+	\item	CAML 	: map\_get\_nearest\_nearest\_r4d2 : int $\rightarrow$ int $\rightarrow$ int
+	\item	JAVA 	: int Prolo.jMapGetNearestR4d2(int id, int team\_id)
+	\end{itemize}
+
+\end{itemize}
+
+\section{Remarques}
+
+\subsection{La gestion du monde}
+
+\begin{itemize}
+	\itemb Comme la carte est continue et les unités ponctuelles,
+	il ne peut pas y avoir de collision.\\
+
+	\itemb Comme la carte est continue, il peut y avoir beaucoup d'unités
+	même dans une zone qui va de (0, 0) à (1, 1).\\
+
+	\itemb L'évaluation du score est calculée de la manière
+	suivante :
+	$$Score = Nombre\:d'Anakronox\:poss\acute{e}d\acute{e}s + 
+	\frac{Nombre\:de\:R4D2\:poss\acute{e}d\acute{e}s}
+	{Nombre\:de\:R4D2\:total}$$
+
+	\itemb L'intensité de l'irradiation des pulsions suit la formule :
+		$$Irradiation = \frac{Puissance\:Pulsar}{1 + Aire\:Zone\:
+		Irradi\acute{e}e}$$
+
+	\itemb Le calcul de la puissance sur une zone (ex : pour la
+	vision des satellites) suit la formule :
+		$$Puissance = Puissance\:de\:vos\:Anakronox -
+		Puissance\:des\:ennemis$$
+
+	\itemb Le transfert d'énergie entre Anakronox suit la formule :
+		$$Energie\:recue = \frac{Puissance\:Anakronox\:source}
+		{1 + Distance\:entre\:les\:Anakronox}$$
+		Après le transfert, l'Anakronox cible va emmagasiner
+		l'énergie supplémentaire jusqu'à la prochaine commande
+		\texttt{pulse}\\
+
+	\label{vitesse}
+	\itemb Le calcul de la vitesse des R4D2 suit la formule :
+		$$Vitesse = Vitesse\:de\:base + Coefficient * 
+		Intensit\acute{e}$$
+
+	\itemb Lorsque vos R4D2 sont irradiés par des Anakronox
+	ennemis, dans un premier temps ils s'immobilisent, et si le
+	champ de force ennemi est ultra-puissant, vos R4D2 vont
+	exploser.\\
+
+	\itemb L'identifiant d'une unité correspond à son index dans un
+	unique tableau du serveur(les Anakronox et les R4D2 sont
+	mémorisés dans le même tableau).\\
+
+	\itemb Pour capturer une unité, vous devez exécuter l'action de
+	capture correspondante pendant X tours, où X est le nombre de
+	tours nécessaires pour capturer cette unité (ex: pour capture
+	un Anakronox d'une nation ennemie)
+	$$X = \mathrm{r4d2\_turn\_take\_akx()} + 
+	\mathrm{r4d2\_turn\_untake\_akx()}$$
+	Au bout de $X$ tours, l'unité sera en votre possession.\\
+
+	\itemb Si plusieurs nations tentent de capturer la même unité,
+	c'est la nation ayant le plus de R4D2 en mode capture sur
+	cette unité qui gagne.\\
+
+	En cas d'égalité la capture est annulée.\\
+
+	\itemb Une unité ne peut exécuter qu'une action par tour. Si
+	vous affectez plusieurs actions à une unité pendant le même
+	tour, seule la dernière action sera prise en compte.\\
+
+	\itemb L'ordre d'exécution des actions est le suivant :\\
+		
+	\begin{enumerate}
+		\item Destruction des R4D2
+		\item Transfert d'énergie entre Anakronox
+		\item Pulse des Anakronox
+		\item Déplacement des unités
+		\item Capture des unités\\
+	\end{enumerate}
+
+	\itemb Si aucun ordre n'est donné à une unité pendant le tour, 
+	celle-ci exécute par défaut l'action du tour précédent.
+
+\end{itemize}
+
+\subsection{Les langages exotiques}
+
+\begin{itemize}
+	\itemb Pour les candidats qui codent en CAML : certaines
+	fonctions reçoivent un entier dans la version CAML et pas dans
+	les autres versions. Dans ce cas l'entier est ignoré par
+	l'API, donc vous pouvez mettre une valeur quelconque (par
+	exemple 51, et sans eau s'il vous plaît).\\
+
+	\itemb Pour les candidats qui codent en JAVA : l'équipe serveur
+	s'est vraiment compliquée la vie à cause d'eux. Il y aura des
+	représailles.
+\end{itemize}
+
+\subsection{Votre code}
+
+\begin{itemize}
+	\itemb Les fichiers où vous devez coder sont :\\
+	
+	\begin{itemize}
+		\item C : prolo.c
+		\item C++/CPP : prolo.cc
+		\item PAS : prolo.pas
+		\item CAML : prolo.ml
+		\item JAVA : Prolo.java\\
+	\end{itemize}
+
+	\itemb Vous pouvez coder dans d'autres fichiers bien sûr
+	(programmation modulaire!). Il faut alors ajouter dans le
+	fichier \textbf{Makefile} le nom de vos fichiers sources sur
+	la ligne \textbf{SRC = \dots}, exemple :\\
+
+	pour ajouter un fichier ia.c dans la version c, modifiez la
+	ligne \textbf{SRC = prolo.c} en \textbf{SRC = prolo.c ia.c}\\
+
+	\itemb Dans la version CAML, il est impossible de rajouter des
+	fichiers secondaires (enfin, nous n'y sommes pas arrivés, ce
+        qui à vrai dire n'est pas tout-à-fait pareil).\\
+
+	\itemb Si vous ajoutez des fichiers dans le Makefile, ne vous trompez
+	pas d'extension! sinon la compilation ne marchera pas!
+
+\end{itemize}
+
+\section{Meta-client}
+
+Le méta-client permet de gérer les matchs, champions et cartes de manière
+simple et conviviale.
+
+\subsection{Mode d'emploi}
+
+\subsubsection{Généralités}
+
+\paragraph{Démarrage}
+Pour lancer le méta-client: trois possibilités. Soit tu le lances depuis un
+terminal (en tapant: \texttt{prologin}), soit tu double-clic sur l'icône
+Prologin, soit tu appuies sur \texttt{Ctrl-Shift-P}.
+
+\paragraph{Principes}
+Le méta-client se compose de quatre listes: une liste de personnes, une liste
+de cartes, un liste de champions et une liste de matchs. Chacune de ces listes
+peut être actualisée en appuyant sur le bouton correspondant. Attention, une
+ré-actualisation nécessite de faire des requêtes sur notre serveur SQL, évitez
+de le faire trop souvent.\\
+
+Il est possible de trier les listes selon chacune des colonnes, en cliquant sur
+le titre.
+
+\subsubsection{La liste de personnes}
+
+Cette liste contient l'ensemble des organisateurs et des candidats ainsi que
+leur statut (présent, absent, zlocké). Il s'agit donc d'un mini-ICQ... Pour
+choisir un pseudo, allez dans le menu système. Il est aussi possible d'envoyer
+un message à une ou plusieurs personnes.
+
+\subsubsection{La liste des cartes}
+
+Cette liste contient aussi bien les cartes officielles que celles des bitmaps.
+Vous pouvez en rajouter en cliquant sur \emph{ajouter}. La taille doit être
+au format ``largeur x hauteur'' (ex: ``100x100''). Le flag ``publique'' indique
+que la carte doit être visible par les autres candidats. Attention: il faut
+aussi que les permissions Unix soient en accord.\\
+
+Les cartes sont décrites dans un fichier texte, le format est décrit dans le 
+man (\texttt{map}(5)).
+
+\subsubsection{La liste des champions}
+
+Cette liste est similaire à la liste des cartes, et contient tous les
+champions publics des autres candidats. Pour plus d'informations sur les
+scores, voir la section \ref{class}, page \pageref{class}.
+
+\subsubsection{Lancement de matchs}
+
+Pour lancer un nouveau match, il faut sélectionner un ou plusieurs champions 
+dans la liste des champions et une carte dans la liste des cartes, et appuyer
+sur \texttt{Ctrl-L} (ou menu Match, Lancer). L'option \emph{paramètres} 
+correspond aux paramètres supplémentaires à passer au serveur (voir la page
+man pour plus d'informations: \texttt{man server}).\\
+
+Il est aussi possible de se connecter sur un match public lancé par un autre
+candidat. Le client graphique restera bloqué le temps qu'un tour complet se
+soit écoulé (oui, on fait un \texttt{read} bloquant...); il n'est pas planté.
+
+\subsection{Le classement temps réel}
+\label{class}
+Ce classement est mis à jour à chaque fois qu'un organisateur lance un match.
+Deux types de score sont affichés: le premier représente la meilleure 
+performance brute (le score afiché à la fin du match), et l'autre le classement
+moyen calculé comme suit:
+$$\frac{score\:total}{nombre\:de\:matchs}$$
+
+A chaque match, le champion reçoit un certain nombre de points
+dépendant de son classement ($p$) et du nombre de joueurs ($n$):
+$$\frac{100 \times n}{2^{p}}$$
+
+Ainsi, si quatre champions se sont affrontés, le premier reçoit 400 points,
+le deuxième 200, le troisième 100 et le dernier 50.\\
+
+\paragraph{Pourquoi deux scores différents?} Pour ne pas favoriser trop les
+performances sur des grandes maps bien remplies. En effet réussir à obtenir 5
+points sur une petite carte peut être plus difficile que d'en obtenir 8 sur une
+grande carte.
+
+\subsection{Remarques}
+
+\begin{itemize}
+  \itemb Ne pas appuyer toutes les 4.2 secondes sur \texttt{Ctrl-A} 
+	(``tout actualiser''), ayez pitié du serveur MySQL.\\
+  \itemb Ne pas lancer deux matchs simultanément (ceci est impossible pour des
+	raisons techniques liées à la gestion de la mémoire partagée sous 
+	NetBSD).\\
+  \itemb Le flag ``public'' pour les champions et les cartes ne s'occupe pas
+	des permissions Unix sur les fichiers. Pensez à mettre aussi les 
+	permissions appropriées.\\
+  \itemb Essayez autant que possible de copier vos champions publics dans un
+	autre répertoire. Ceci vous permet de continuer à travailler dessus,
+	tout en gardant une version publique fonctionnelle.\\
+  \itemb Les erreurs SQL sont probablement au fait que les noms de champions et
+	de cartes doivent être uniques; il ne faut donc pas s'inquiéter.\\
+  \itemb Il est formellement interdit de flooder un candidat de messages ou de
+	tenter de hacker notre serveur... sous peine de disqualification 
+	immédiate.
+\end{itemize}
+
+\vspace{2cm}
+
+\begin{center}
+\LARGE
+Bonne chance !\\
+\large
+Il ne te reste que 36 heures \texttt{:)}
+\end{center}
+
+\end{document}
+
+% LocalWords:  Anakronox Linker télécharger void int procedure integer CAML

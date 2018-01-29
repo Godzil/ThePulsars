@@ -1,0 +1,41 @@
+.\"$Id: prologin.man,v 1.1 2001/05/03 15:46:50 kilobug Exp $
+.TH "prologin" 1 "4 Mai 2001" "Prologin" "Finale prologin 2001"
+.SH NOM
+.BR "prologin" " \- Meta-client pour la finale Prologin 2001"
+
+.SH SYNOPSIS
+.BR "prologin" " [-r host] [-d bd]"
+
+.SH DESCRIPTION
+Ce programme permet de lancer de manière pratique et conviviale des matchs
+pour la finale Prologin 2001.
+.LP
+Les options reconnues sont:
+
+.BI -r " host"	
+lance les serveurs la machine indiquée.
+
+.BI -d " bd"	
+spécifie la base de données à utiliser (finale par défaut).
+
+.SH ENVIRONMENT
+
+La variable d'environement
+.B "PROLO_DATA_DIR"
+doit contenir le nom du répertoire contenant les fichiers de données (sprites
+et boutons).
+
+.SH BUGS
+
+Les paramètres de connexion au serveur MySQL ne sont pas modifiables sans
+recompilation.
+
+.SH AUTEURS
+.I Equipe soft Prologin 2001:
+    Nicolas Baradakis
+    Jean-Christophe Bossu
+    Gael Le Mignot
+ 
+.SH VOIR AUSSI
+.BR "gtk-client"(1), " server"(1), " map"(5), " bouvier"(1)
+ 

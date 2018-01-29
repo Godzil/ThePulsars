@@ -1,0 +1,1154 @@
+# $Id: ChangeLog,v 1.19 2001/05/11 12:25:42 kilobug Exp $
+
+2001-05-11  Kilobug  <le-mig_g@epita.fr>
+
+	* AUTHORS, README: *** empty log message ***
+
+2001-05-07  Kilobug  <le-mig_g@epita.fr>
+
+	* configure.in, src/server/parser.c: Post-finale
+
+	* configure.in, doc/map.man, doc/mserver.sql, src/meta-client/champions.c, src/meta-client/gtk_main.c, src/meta-client/run_tournois.c, src/meta-client/tournois.c, src/meta-client/tournois.h, src/server/client.c, src/server/exec.c, src/server/game.c, src/server/parser.c, src/server/plugins.c, src/server/private.h:
+	commit pendant la correction
+
+2001-05-06  Kilobug  <le-mig_g@epita.fr>
+
+	* data/map/2players.map, data/map/4players.map, data/map/pulse-4.map, data/map/small.map, src/meta-client/run_tournois.c, src/server/client.c, src/server/exec.c, src/server/exec.h:
+	Link,
+
+	* src/server/exec.c: Memory leak fix
+
+	* src/server/parser.c, src/server/private.h, src/server/client.c, src/server/game.c, data/Makefile.am, data/map/center.map, data/map/2players.map, data/map/4players.map, data/map/Makefile.am, data/map/pulse-4.map, data/map/small.map, src/server/exec.c, src/server/init.c, src/server/pulse.c, src/server/time.c:
+	*** empty log message ***
+
+	* data/map/2players.map, data/map/4players.map, data/map/pulse-4.map, data/map/small.map, src/gtk-client/stats.c, src/meta-client/run_match.c, src/server/client.c, src/server/exec.h, src/server/game.c, src/server/init.c, src/server/map.c, src/server/pulse.c:
+	BUGS FIX
+
+2001-05-05  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/client.c, src/server/game.c, src/server/map.c, src/server/pulse.c:
+	*** empty log message ***
+
+	* src/server/game.c: numero de tour
+
+	* src/server/client.c, src/server/pulse.c: MAJ finale
+
+	* data/Makefile.am, src/cleanshm.sh, src/server/client.c, src/server/exec.c, src/server/game.c, src/server/plugins.c, src/server/plugins.h, src/server/pulse.c:
+	Correction de bugs diverse
+
+	* configure.in, src/gtk-client/stats.c: Patch: inversion X et Yt
+
+2001-05-05  nico  <nico@ruri-chan>
+
+	* src/client/prolo/makec, src/client/prolo/makec++, src/client/prolo/makecaml, src/client/prolo/makejava, src/client/prolo/makepas, src/client/pas/Makefile, src/client/java/Makefile, src/client/cpp/Makefile, src/client/caml/Makefile, src/client/c++/Makefile, src/client/c/Makefile:
+	Les makefile des clients
+
+2001-05-05  jc  <glop@ruri-chan>
+
+	* src/client/pas/prolo.pas: MAJ pascal client vide
+
+	* src/client/java/prologin.cc, src/client/java/Prolo.java: MAJ java
+
+	* doc/sujet/sujet.tex: MAJ sujet
+
+2001-05-04  Kilobug  <le-mig_g@epita.fr>
+
+	* src/meta-client/run_tournois.c: *** empty log message ***
+
+	* src/meta-client/run_match.c, src/meta-client/run_tournois.c, src/meta-client/tournois.c, src/meta-client/tournois.h:
+	Gestionnaire de tournois: a peu pres OK
+
+	* doc/Makefile.am, aclocal.m4: *** empty log message ***
+
+	* src/server/game.c: Sitemout
+
+	* src/meta-client/init.c, src/meta-client/run_match.c, src/meta-client/run_tournois.c, src/meta-client/tournois.c, src/meta-client/tournois.h:
+	Tournois
+
+2001-05-04  jc  <glop@ruri-chan>
+
+	* doc/sujet/sujet.tex: MAJ sujet
+
+	* src/server/client.c, src/server/public.h, src/client/pas/prolo.pas, src/client/java/main.cc, src/client/java/prologin.cc, src/client/java/prologin.hh, src/client/java/Prolo.java, src/client/cpp/interface.hh, src/client/cpp/prolo.hh, src/client/caml/prolo.c, src/client/caml/prolo.h, src/client/caml/prolo.ml, src/client/c++/prolo.hh, src/client/c/prolo.h:
+	Ajout fct mathias
+
+2001-05-04  nico  <nico@ruri-chan>
+
+	* doc/sujet/sujet.tex, doc/sujet/prolo.eps: Sujet
+
+2001-05-03  Kilobug  <le-mig_g@epita.fr>
+
+	* doc/Makefile.am, doc/sujet/Makefile, doc/sujet/mclient.tex, src/client/c/prolo.c, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/Makefile.am, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql.h, src/meta-client/run_tournois.c, src/meta-client/tournois.c, src/meta-client/tournois.h:
+	Debut d'implementation des tournois
+
+	* src/server/bouvier.c, src/server/conf.h, src/server/game.c, src/meta-client/run_match.c, src/client/c/prolo.c:
+	Bouvier OK
+
+	* doc/map.man: *** empty log message ***
+
+2001-05-03  jc  <glop@ruri-chan>
+
+	* src/server/game.c: MAJ bug
+
+2001-05-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/init.c, src/server/game.c: *** empty log message ***
+
+2001-05-03  jc  <glop@ruri-chan>
+
+	* src/server/bouvier.c, src/client/bouvier.c: MAJ bouvier
+
+	* src/server/Makefile.am, src/client/pas/Makefile, src/client/java/Makefile, src/client/cpp/Makefile, src/client/caml/Makefile, src/client/c++/Makefile, src/client/c++/prolo.cc, src/client/c/Makefile:
+	Maj bouvieur
+
+2001-05-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/meta-client/init.c, src/meta-client/mclient.h, src/meta-client/run_match.c:
+	Options pour le java
+
+2001-05-03  jc  <glop@ruri-chan>
+
+	* src/server/init.c: pour compiler
+
+2001-05-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/init.c: *** empty log message ***
+
+2001-05-03  jc  <glop@ruri-chan>
+
+	* src/server/Makefile.am, src/client/c/Makefile, src/client/bouvier.c:
+	MAJ bouviage
+
+2001-05-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/init.c: *** empty log message ***
+
+	* doc/bouvier.man, doc/gtk-client.man, doc/Makefile.am, doc/map.man, doc/prologin.man, doc/server.man:
+	pages man
+
+	* configure.in: *** empty log message ***
+
+2001-05-03  jc  <glop@ruri-chan>
+
+	* src/server/Makefile.am, src/server/system.c, src/client/pas/Makefile, src/client/java/Makefile, src/client/cpp/Makefile, src/client/caml/Makefile, src/client/c++/Makefile, src/client/c/Makefile, src/client/bouvier.c:
+	MAJ anti-bouviasserie
+
+2001-05-03  nico  <nico@ruri-chan>
+
+	* doc/sujet/sujet.tex: sujet fini :)
+
+	* doc/sujet/sujet.tex: Sujet
+
+2001-05-03  Kilobug  <le-mig_g@epita.fr>
+
+	* doc/sujet/Makefile, doc/sujet/mclient.tex: *** empty log message ***
+
+2001-05-02  nico  <nico@ruri-chan>
+
+	* doc/sujet/sujet.tex: Le sujet!!!
+
+2001-05-02  Kilobug  <le-mig_g@epita.fr>
+
+	* ChangeLog: *** empty log message ***
+
+	* src/netlib/net_private.h, configure.in: Debug rezo off
+
+	* src/meta-client/menubar.c: zlock -immed
+
+2001-05-02  jc  <glop@ruri-chan>
+
+	* doc/sujet/sujet.tex: MAJ sujet (ajout new function)
+
+	* src/server/client.c, src/server/game.h, src/server/public.h, src/server/pulse.c, src/client/pas/prolo.pas, src/client/java/main.cc, src/client/java/prologin.cc, src/client/java/prologin.hh, src/client/java/Prolo.java, src/client/cpp/interface.hh, src/client/cpp/prolo.hh, src/client/caml/prolo.c, src/client/caml/prolo.h, src/client/caml/prolo.ml, src/client/c++/prolo.hh, src/client/c/prolo.h:
+	Ajout new function
+
+	* aclocal.m4: *** empty log message ***
+
+2001-05-02  Kilobug  <le-mig_g@epita.fr>
+
+	* aclocal.m4, config.h.in, configure.in, src/client/pas/Makefile, src/server/main.c, src/server/Makefile.am, src/server/plugins.c:
+	*** empty log message ***
+
+	* configure.in: Bug dans la detection du Pascal corrige
+
+2001-05-01  Kilobug  <le-mig_g@epita.fr>
+
+	* aclocal.m4, config.h.in, configure.in, src/server/main.c, src/server/Makefile.am, src/server/plugins.c:
+	Pascal et CAML optionels (detection par autoconf)
+
+	* aclocal.m4, src/client/pas/Makefile, src/client/pas/prolo.pas, src/server/main.c, src/server/Makefile.am:
+	Pascal: OK
+
+	* src/meta-client/matchs.c: Segafult fix
+
+	* configure.in, ChangeLog, src/server/Makefile.am, src/meta-client/init.c, src/meta-client/run_match.c, src/gtk-client/Makefile.am, src/Makefile.am, doc/Makefile.am, doc/TODO, data/map/Makefile.am, data/Makefile.am:
+	*** empty log message ***
+
+	* data/map/2players.map, data/map/4players.map, data/map/Makefile.am, data/map/pulse-4.map, data/map/sample2.map, data/map/sample3.map, data/map/sample4.map, data/map/sample.map, data/map/small.map:
+	Map clean up
+
+	* src/meta-client/init.c, configure.in, Makefile.am: Installation
+
+	* src/netlib/net_private.h, src/server/exec.h, src/client/pas/Makefile:
+	NetBSD: correction de warningS
+
+2001-04-30  Kilobug  <le-mig_g@epita.fr>
+
+	* ChangeLog: *** empty log message ***
+
+	* src/netlib/read.c, src/netlib/write.c, src/general.h, src/Makefile.am, configure.in:
+	Configure & network cleanup
+
+2001-04-30  jc  <glop@ruri-chan>
+
+	* src/client/c/prolo.c: MAJ client C
+
+2001-04-29  Kilobug  <le-mig_g@epita.fr>
+
+	* configure.in, src/gtk-client/mainbox.c, ChangeLog:
+	*** empty log message ***
+
+	* src/gtk-client/client.h, src/gtk-client/init.c, src/gtk-client/map.c, src/gtk-client/network.c:
+	BF: fin de match
+
+	* src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap.c, src/gtk-client/mainbox.c, src/gtk-client/pixbuf.c, src/gtk-client/toolbar.c, src/server/game.c, src/server/ipc.c, src/server/ipc.h:
+	Nettoyage, zoom ameliore
+
+	* configure.in, ChangeLog, src/server/network_connect.c, src/netlib/read.c, src/netlib/check.c, src/netlib/error.c, src/netlib/write.c, src/gtk-client/load_map.c, src/gtk-client/map.c, config.h.in, aclocal.m4, src/server/game.c, data/sand.gif:
+	*** empty log message ***
+
+	* src/client/c++/Makefile, src/client/c/Makefile, src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/init.c, src/gtk-client/load_map.c, src/gtk-client/map.c, src/gtk-client/network.c, src/netlib/misc.c, src/netlib/net_private.h, src/netlib/read.c, src/server/network_connect.c:
+	Debug reso
+
+2001-04-29  jc  <glop@ruri-chan>
+
+	* src/server/client.c, src/server/exec.c: MAJ bug interface
+
+	* src/gtk-client/client.h, src/gtk-client/gen_minimap.c:
+	MAJ bug minimap
+
+	* src/client/c/prolo.c, src/client/c/prolo.h: MAJ client qui poutre
+
+	* doc/sujet/sujet.tex: MAJ sujet
+
+2001-04-29  nico  <nico@ruri-chan>
+
+	* src/client/pas/Makefile:
+	Pascal : modif du Makefile regles GNU => regles standards
+	di
+
+	* src/client/java/Makefile, src/client/java/prologin.cc, src/client/java/Prolo.java:
+	Le client Java marche du tonnerre :)
+
+2001-04-28  jc  <glop@ruri-chan>
+
+	* src/server/Makefile.am, src/server/pulse.c: MAJ fonction de pulse
+
+2001-04-28  Kilobug  <le-mig_g@epita.fr>
+
+	* src/general.h: *** empty log message ***
+
+	* aclocal.m4, config.h.in, configure.in, src/gtk-client/load_map.c, src/Makefile.am, src/netlib/net.h, src/server/network.c, src/server/network_connect.c:
+	configure.in ameliore, protcoloe modifie
+
+2001-04-26  jc  <glop@ruri-chan>
+
+	* src/server/action.h, src/server/exec.h:
+	Modif des erreurs (j'ai enleve les erreurs innutilisee)
+
+	* src/client/java/main.cc, src/client/java/Prolo.java:
+	Modif client Java
+
+	* src/client/cpp/prolo.hh, src/client/cpp/prolo.cc: Modif client CPP
+
+	* doc/sujet/Makefile, doc/sujet/sujet.tex: SUjet FINALE DONE
+		manque orthographe, grammaire
+		accent
+		verification comprehensibilite
+
+2001-04-25  Kilobug  <le-mig_g@epita.fr>
+
+	* ChangeLog, configure.in: *** empty log message ***
+
+	* src/meta-client/bitmaps.c, src/meta-client/gtk_main.c, src/meta-client/mclient.h:
+	Envoie de mesage
+
+	* AUTHORS, ChangeLog: *** empty log message ***
+
+2001-04-25  jc  <glop@ruri-chan>
+
+	* src/server/erreur.h, src/server/plugins.c: MAJ erreurs
+
+2001-04-25  nico  <nico@ruri-chan>
+
+	* src/client/java/main.cc, src/client/java/Makefile, src/client/java/prologin.cc, src/client/java/prologin.hh, src/client/java/prolo.hh:
+	Noms de fichiers pour l'interface Java
+
+2001-04-25  Kilobug  <le-mig_g@epita.fr>
+
+	* src/meta-client/bitmaps.c, src/meta-client/gtk_main.c, src/meta-client/mclient.h, src/meta-client/run_match.c:
+	Tri
+
+	* src/gtkutil/clist.c, src/gtkutil/create.c: Tri: strcasecmp
+
+	* src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/init.c, src/gtk-client/players.c, src/gtk-client/toolbar.c:
+	Zoom logarithmique
+
+	* src/meta-client/init.c: *** empty log message ***
+
+2001-04-24  Kilobug  <le-mig_g@epita.fr>
+
+	* src/gtk-client/mainbox.c, src/meta-client/init.c, src/meta-client/run_match.c:
+	Bugs fixes lorsque le client graphique est quitte en cours de partie.
+
+2001-04-24  jc  <glop@ruri-chan>
+
+	* src/client/java/main.cc, src/client/java/Makefile, src/client/java/prolo.hh, src/client/java/Prolo.java:
+	Client JAVA
+
+	* src/client/caml/Makefile, src/client/caml/prolo.c, src/client/caml/prolo.h, src/client/caml/prolo.ml:
+	Client CAML
+
+	* src/server/game.c: rien
+
+	* src/server/plugins.c, src/server/public.h: Gestion symbol pascal
+
+	* src/client/c/prolo.c: MAJ CAML
+
+	* src/client/c++/prolo.cc, src/client/c++/prolo.hh, src/client/c++/Makefile:
+	Ajout C++ mode "C"
+
+	* src/client/cpp/prolo.cc, src/client/cpp/prolo.hh: MAJ C++ mode Objet
+
+	* src/client/pas/prolo.pas: MAJ Interface PASCAL
+
+	* src/client/cpp/interface.hh: MAJ header C++
+
+	* src/client/c/prolo.h: MAJ header C
+
+	* src/client/pas/Makefile, src/client/pas/prolo.pas:
+	MAJ interface pascal
+
+	* src/client/cpp/interface.hh, src/client/cpp/Makefile, src/client/cpp/prolo.cc, src/client/cpp/prolo.hh, src/client/c/Makefile, src/client/c/prolo.c, src/client/c/prolo.h:
+	MAJ interface client
+
+	* src/server/client.c, src/server/public.h:
+	Ajout fonction retournant la conf de la map
+		speed
+		destroy
+		...
+
+	* src/gtk-client/client.h, src/gtk-client/gen_bigmap2.c, src/gtk-client/gen_bigmap.c:
+	Bug affichage PULSE pour le akx num 0
+
+	* doc/sujet/Makefile, doc/sujet/sujet.tex: Sujet Finale
+
+2001-04-23  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/map_parser.c: id > nb_players => id = 0
+
+2001-04-22  Kilobug  <le-mig_g@epita.fr>
+
+	* configure.in, src/server/game.c, aclocal.m4, src/gtk-client/Makefile.am:
+	*** empty log message ***
+
+	* src/meta-client/gtk_main.c, src/meta-client/init.c:
+	delete-event, test de l'utilisateur
+
+	* src/gtk-client/stats.c: Scroll des listes
+
+	* configure.in, src/meta-client/init.c, config.h.in, ChangeLog:
+	*** empty log message ***
+
+2001-04-21  Kilobug  <le-mig_g@epita.fr>
+
+	* config.h.in, src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap2.c, src/gtk-client/gen_bigmap.c, src/gtk-client/init.c, src/gtk-client/toolbar.c, src/meta-client/init.c, src/meta-client/run_match.c, src/server/game.c:
+	*** empty log message ***
+
+2001-04-21  jc  <glop@ruri-chan>
+
+	* data/map/sample3.map, data/map/sample4.map:
+	[KILOBUG] J'ai ajoutes tes maps au CVS
+
+2001-04-21  Kilobug  <le-mig_g@epita.fr>
+
+	* src/meta-client/run_match.c: Activate dans run_match
+
+	* src/gtk-client/mainbox.c: Activate dans connect
+
+	* src/server/plugins.c: exit(1) => abort()
+
+2001-04-20  jc  <glop@ruri-chan>
+
+	* src/server/client.c, src/server/pulse.c: Prob fct interface client
+
+	* src/meta-client/run_match.c: Bug fenetre messager...
+
+2001-04-20  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/init.c: BF: shm free
+
+	* src/meta-client/menubar.c, src/meta-client/mysql_list.c, src/gtk-client/init.c, src/gtk-client/menubar.c, src/gtk-client/toolbar.c:
+	Niv zoom & raccourcis claviers
+
+	* configure.in, ChangeLog: *** empty log message ***
+
+	* src/meta-client/champions.c, src/meta-client/gtk_main.c, src/meta-client/maps.c, src/meta-client/mclient.h, src/meta-client/mysql.h, src/meta-client/mysql_list.c:
+	Modification
+
+	* src/gtk-client/network.c, ChangeLog, configure.in:
+	*** empty log message ***
+
+2001-04-19  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_bigmap.c: Oups ??
+
+	* src/server/client.c, src/server/map.c, src/server/pulse.c:
+	BUG GAEL dans get_pulse_team...???
+
+	* src/gtk-client/gen_bigmap.c, src/gtk-client/init.c: ???
+
+	* doc/TODO: MAJ TODO
+
+2001-04-19  Kilobug  <le-mig_g@epita.fr>
+
+	* src/meta-client/run_match.c: mbfmbf
+
+	* src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, src/gtk-client/init.c, src/gtk-client/network.c:
+	mbf
+
+	* src/server/ipc.c: BF dans shm_clean
+
+	* src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/run_match.c, src/meta-client/init.c:
+	execdir rajoute avant l'exeuction
+
+	* src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, src/gtk-client/init.c:
+	Pulses sur la bigmap: tableau
+
+	* src/gtk-client/init.c, src/gtk-client/toolbar.c: mbf
+
+	* src/gtk-client/toolbar.c: *** empty log message ***
+
+2001-04-19  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gamearea.c: Gestion check box
+
+2001-04-19  Kilobug  <le-mig_g@epita.fr>
+
+	* src/meta-client/champions.c, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/mysql.h, src/meta-client/mysql_list.c, src/meta-client/run_match.c, data/map/sample2.map, src/gtkutil/clist.c, src/gtkutil/gtkutil.h, src/gtk-client/client.h, src/gtk-client/init.c, src/gtk-client/players.c, src/gtk-client/stats.c, src/gtk-client/toolbar.c:
+	*** empty log message ***
+
+	* data/r4d2_0.xpm: Explosion
+
+2001-04-19  jc  <glop@ruri-chan>
+
+	* src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap2.c, src/gtk-client/gen_bigmap.c, src/gtk-client/init.c, src/gtk-client/Makefile.am:
+	BIG MAP 2
+
+2001-04-18  jc  <glop@ruri-chan>
+
+	* src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, src/gtk-client/gen_minimap.c:
+	MAJ couleur PULSE...
+
+	* src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, src/gtk-client/gen_minimap.c:
+	MAJ pulse carte OK, encore 2/3 optime et c'est bon...
+
+2001-04-18  Kilobug  <le-mig_g@epita.fr>
+
+	* data/r4d2_0_mask.xpm, data/r4d2_0.xpm, data/r4d2_mask.xpm, data/r4d2.xpm:
+	Nouveaux sprites
+
+2001-04-17  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_bigmap.c: MAJ link pulse 1/???
+		fonction is_seeABLE
+			2 point et 3 points
+
+2001-04-17  Kilobug  <le-mig_g@epita.fr>
+
+	* src/gtkutil/create.c, src/client/c/Makefile, doc/mserver.sql, configure.in, src/meta-client/init.c, config.h.in:
+	*** empty log message ***
+
+2001-04-15  Kilobug  <le-mig_g@epita.fr>
+
+	* ChangeLog: *** empty log message ***
+
+	* data/map/sample.map, src/gtkutil/create.c, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/Makefile.am, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql_list.c, src/meta-client/run_match.c, src/meta-client/statusbar.c, configure.in, data/logo_small.xpm, src/gtk-client/load_map.c, src/gtk-client/pixbuf.c:
+	Bugfixes et ameliorations mineures
+
+	* data/map/sample2.map: *** empty log message ***
+
+	* src/meta-client/bitmaps.c, src/meta-client/champions.c, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mysql.h, src/meta-client/mysql_list.c:
+	Couleurs dans le meta-client
+
+	* configure.in, doc/mserver.sql, doc/TODO, src/meta-client/bitmaps.c, src/meta-client/champions.c, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/run_match.c, src/server/main.c:
+	Bugfix dans les scores.
+	Ooops... la liste des fichiers modifies est fausse (pb de touch)
+
+	* src/server/exec.c, src/server/main.c, src/server/network.c, src/server/network.h, configure.in, doc/TODO, src/gtk-client/init.c, src/gtk-client/map.c, src/gtk-client/network.c, src/gtk-client/players.c, src/gtk-client/toolbar.c, src/meta-client/init.c, src/meta-client/mclient.h, src/meta-client/run_match.c, src/netlib/misc.c, src/netlib/write.c:
+	Fins de matchs: OK
+
+	* configure.in, src/gtk-client/client.h, src/gtk-client/mainbox.c, src/gtk-client/menubar.c, src/gtk-client/players.c, src/gtk-client/stats.c, src/gtk-client/toolbar.c, src/gtkutil/clist.c, src/gtkutil/gtkutil.h, src/meta-client/champions.c, src/meta-client/gtk_main.c, src/meta-client/maps.c, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql.h, src/meta-client/mysql_list.c, src/meta-client/run_match.c:
+	Bulles d'aide
+
+	* data/map/sample.map, doc/protocole.txt, doc/TODO, src/general.h, src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, src/gtk-client/load_map.c, src/gtk-client/map.c, src/gtk-client/pixbuf.c, src/netlib/read.c, src/netlib/write.c, src/server/conf.h, src/server/init.c, src/server/map_parser.c, src/server/network_connect.c, src/server/parser.c, src/server/parser.h:
+	Fond: scroll et configurable dans la map
+
+2001-04-14  Kilobug  <le-mig_g@epita.fr>
+
+	* src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap.c, src/gtk-client/gen_minimap.c, src/gtk-client/load_map.c, src/gtk-client/map.c, src/gtk-client/minimap.c, src/gtk-client/network.c, src/gtk-client/players.c, src/gtk-client/stats.c:
+	Optimisations dans les stats et les maps.
+
+	* config.h.in, configure.in, src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gtk.c, src/gtk-client/Makefile.am, src/gtk-client/players.c, src/gtk-client/stats.c, src/gtk-client/toolbar.c, src/gtkutil/callbacks.c, src/gtkutil/clist.c, src/gtkutil/create.c, src/gtkutil/filesel.c, src/gtkutil/gtkutil.h, src/gtkutil/Makefile.am, src/Makefile.am, src/meta-client/champions.c, src/meta-client/gtk.c, src/meta-client/init.c, src/meta-client/Makefile.am, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mclient.h:
+	Creation du module libgtkutil et cleanup
+
+	* doc/mserver.sql: *** empty log message ***
+
+	* doc/TODO, src/gtk-client/stats.c, configure.in: Stats OK
+
+	* ChangeLog: *** empty log message ***
+
+	* src/server/init.c, src/server/ipc.c, src/server/main.c, src/server/map_parser.c, src/server/parser.c, src/server/plugins.c, src/server/server.h, src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/run_match.c, src/meta-client/champions.c:
+	Scores (Meta-server)
+
+	* doc/TODO: Scores
+
+	* src/meta-client/run_match.c:
+	Gestion des matchs: OK, reste les scores a parser
+
+	* src/server/game.c, src/server/message.c, src/meta-client/run_match.c, configure.in:
+	Fin de match: presque OK
+
+	* src/meta-client/run_match.c, src/cleanshm.sh, src/Makefile.am: Cleans
+
+	* configure.in, ChangeLog: *** empty log message ***
+
+	* src/meta-client/init.c, src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap.c:
+	Correction de bugs mineurs
+
+	* src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap.c, src/gtk-client/load_map.c, doc/TODO, config.h.in:
+	Clipping des sprites
+
+2001-04-13  Kilobug  <le-mig_g@epita.fr>
+
+	* doc/TODO, src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gen_minimap.c, src/gtk-client/gtk.c, src/gtk-client/init.c, src/gtk-client/load_map.c, src/gtk-client/minimap.c, src/gtk-client/toolbar.c, config.h.in:
+	Choix de la zone dans la minimap
+
+	* src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap.c, src/gtk-client/init.c, src/gtk-client/minimap.c:
+	Debut du scroll de la minimap
+
+	* src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, src/gtk-client/init.c, src/gtk-client/load_map.c, src/gtk-client/map.c, src/gtk-client/pixbuf.c, doc/TODO:
+	Bigmap: OK
+
+	* data/tank01_mask.xpm, data/r4d2_0_mask.xpm, data/r4d2_0.xpm, data/r4d2_mask.xpm, data/r4d2.xpm, data/tank00_mask.xpm, data/tank00.xpm, data/tank01.xpm, data/akx_0_mask.xpm, data/akx_0.xpm, data/akx_mask.xpm, data/akx.xpm, data/R2D2-02.gif, data/r2d2.jpg, data/1_bg.jpg, data/1.jpg, data/3.jpg:
+	Regorganisation des fcihiesr
+
+2001-04-13  nico  <nico@ruri-chan>
+
+	* src/client/cpp/interface.hh: Suite du C++
+
+	* src/client/cpp/main.cc, src/client/cpp/Makefile, src/client/cpp/prolo.hh:
+	Ajout de l'interface C++ pour les candidats
+
+2001-04-13  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_bigmap.c, src/gtk-client/pixbuf.c: big map OK
+
+2001-04-13  Kilobug  <le-mig_g@epita.fr>
+
+	* src/gtk-client/pixbuf.c: Ouppsss.... oubli
+
+	* src/server/network.c, src/netlib/check.c, src/netlib/net.h, src/meta-client/run_match.c:
+	*** empty log message ***
+
+	* src/gtk-client/gamearea.c, src/gtk-client/gen_bigmap.c, src/gtk-client/init.c, src/gtk-client/mainbox.c, src/gtk-client/menubar.c, src/gtk-client/network.c, src/gtk-client/client.h, src/gtk-client/Makefile.am:
+	Bigmap: affichage des sprites
+
+	* src/general.h: *** empty log message ***
+
+	* doc/protocole.txt, configure.in: Bigmap: affichage des sprites OK
+
+2001-04-13  nico  <nico@ruri-chan>
+
+	* doc/TODO: Modif TODO
+
+2001-04-13  jc  <glop@ruri-chan>
+
+	* src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, src/gtk-client/gen_minimap.c:
+	*** empty log message ***
+
+	* src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gen_bigmap.c, data/tank01_mask.xpm, data/r2d2.jpg, data/sa00007.jpg, data/sa00012.jpg, data/sa00016.jpg, data/sa00024.jpg, data/tank00_mask.xpm, data/tank00.xpm, data/tank01.xpm, data/1_bg.jpg, data/1.jpg, data/3.jpg, data/ind-dragon.jpg, data/R2D2-02.gif, config.h.in, configure.in:
+	bitmaps deplacer
+
+	* src/gtk-client/gen_bigmap.c, src/gtk-client/client.h: big map++
+
+	* src/gtk-client/gamearea.c, src/gtk-client/load_map.c, src/gtk-client/Makefile.am, src/gtk-client/map.c:
+	Debut big map
+
+2001-04-12  Kilobug  <le-mig_g@epita.fr>
+
+	* config.h.in, doc/TODO, src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/init.c, src/meta-client/matchs.c, src/meta-client/mysql.c, src/meta-client/mysql.h, src/meta-client/mysql_list.c, src/meta-client/run_match.c, src/server/conf.h, src/server/init.c, src/server/network_connect.c:
+	Messages du serveur
+
+	* src/server/network_connect.c, src/netlib/open.c: Setsockopt
+
+	* src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/Makefile.am, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql_list.c, src/meta-client/run_match.c:
+	Execution des matchs
+
+	* src/meta-client/mysql_list.c, src/gtk-client/stats.c:
+	*** empty log message ***
+
+2001-04-12  jc  <glop@ruri-chan>
+
+	* src/server/message.c, src/gtk-client/gen_minimap.c: Bug memcpy
+
+	* src/server/ipc.c, src/gtk-client/client.h, src/gtk-client/gen_minimap.c:
+	Minimap ALL OK!!!
+
+	Houppy La joie!
+
+2001-04-12  Kilobug  <le-mig_g@epita.fr>
+
+	* src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/init.c, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql.c, src/meta-client/mysql_list.c, src/general.h, doc/TODO, config.h.in, configure.in:
+	Execution des matchs: OK
+
+	* src/server/init.c, src/server/ipc.c, src/server/ipc.h, src/server/map_parser.c, src/server/plugins.c, src/meta-client/init.c, src/meta-client/mysql.h, src/gtk-client/client_gtk.h, src/gtk-client/stats.c, config.h.in:
+	IPC fix
+
+2001-04-12  jc  <glop@ruri-chan>
+
+	* ChangeLog: dg
+
+2001-04-11  Kilobug  <le-mig_g@epita.fr>
+
+	* doc/mserver.sql, doc/TODO, src/meta-client/champions.c, src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/init.c, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql.h, src/meta-client/mysql_list.c:
+	Ajout/suppression
+
+	* src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql.c, src/meta-client/mysql.h, src/meta-client/Makefile.am:
+	Liste des matchs, choix du login
+
+	* doc/mserver.sql, src/meta-client/bitmaps.c, src/meta-client/champions.c, src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/main.c, src/meta-client/Makefile.am, src/meta-client/maps.c, src/meta-client/matchs.c, src/meta-client/mclient.h, src/meta-client/menubar.c, src/meta-client/mysql.c, src/meta-client/mysql.h, src/meta-client/mysql_list.c, src/meta-client/statusbar.c:
+	Le systeme mysql_list marche.
+
+	* src/general.h, src/gtk-client/client.h, src/meta-client/gtk.c, src/meta-client/gtk.h, src/meta-client/gtk_main.c, src/meta-client/init.c, src/meta-client/main.c, src/meta-client/Makefile.am, src/meta-client/mclient.h, src/meta-client/mysql.c, src/meta-client/mysql.h, src/server/server.h, config.h.in, configure.in, doc/mprotocole.txt, src/Makefile.am:
+	Debut du meta-client
+
+2001-04-10  Kilobug  <le-mig_g@epita.fr>
+
+	* src/netlib/error.c:
+	Error handling
+
+	* src/netlib/net.h, src/netlib/net_private.h, src/netlib/read.c, src/netlib/Makefile.am:
+	Error handler
+
+	* src/server/network.c, src/server/network_connect.c:
+	Support des deconnexions
+
+	* src/gtk-client/network.c, src/gtk-client/players.c, src/gtk-client/stats.c, src/gtk-client/gtk.c, src/gtk-client/init.c, src/gtk-client/load_map.c, src/gtk-client/mainbox.c, src/gtk-client/main.c, src/gtk-client/map.c, src/gtk-client/menubar.c, src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gen_minimap.c, src/gtk-client/Makefile.am:
+	Debut des stats; cone buggue
+
+	* data/map/sample.map: *** empty log message ***
+
+	* src/server/conf.h, src/server/map_parser.c, data/map/sample.map, Makefile.in:
+	Calcul automatique de la taille de la map.
+
+2001-04-09  Kilobug  <le-mig_g@epita.fr>
+
+	* configure.in, src/gtk-client/toolbar.c, ChangeLog:
+	*** empty log message ***
+
+2001-04-09  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_minimap.c, src/gtk-client/players.c:
+	Bug minimap OK
+
+2001-04-09  Kilobug  <le-mig_g@epita.fr>
+
+	* src/gtk-client/main.c: *** empty log message ***
+
+2001-04-09  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_minimap.c: BUG couleurs joueurs OK
+
+2001-04-09  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/init.c, src/gtk-client/toolbar.c: Barre de progression OK
+
+	* src/gtk-client/load_map.c, src/gtk-client/map.c, src/gtk-client/minimap.c, src/gtk-client/players.c, src/gtk-client/toolbar.c, src/gtk-client/client.h, src/gtk-client/gen_minimap.c:
+	Bugfix
+
+	* src/server/network.c, src/server/network_connect.c, src/gtk-client/client.h, src/gtk-client/load_map.c, src/gtk-client/mainbox.c, src/gtk-client/map.c, src/gtk-client/minimap.c, src/gtk-client/players.c, src/gtk-client/toolbar.c, src/general.h, doc/protocole.txt:
+	Nouveau protocole (+ rapide, tours)
+
+	* src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gtk.c, src/gtk-client/init.c, src/gtk-client/map.c, src/gtk-client/menubar.c, src/gtk-client/toolbar.c:
+	Controle de la simulation
+
+	* src/gtk-client/mainbox.c, src/gtk-client/toolbar.c, src/gtk-client/client_gtk.h, src/gtk-client/gen_minimap.c, src/gtk-client/gtk.c, data/pause.xpm, data/play.xpm, data/step.xpm, data/ffwd.xpm, data/logo.xpm:
+	Boutons
+
+2001-04-08  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/network.c, src/server/network_connect.c, src/server/network.h, src/netlib/net.h, src/netlib/open.c, src/netlib/read.c, src/gtk-client/network.c, src/gtk-client/statusbar.c, doc/mserver.sql, config.h.in, Makefile.in:
+	Support de plusieurs clients
+
+	* src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gen_minimap.c, src/gtk-client/load_map.c, src/gtk-client/main.c, src/gtk-client/Makefile.am, src/gtk-client/map.c, src/gtk-client/minimap.c, src/gtk-client/statusbar.c, src/gtk-client/toolbar.c:
+	Scores
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* configure.in, doc/mprotocole.txt, doc/mserver.sql, src/Makefile.am:
+	Debut du meta-server
+
+	* src/gtk-client/minimap.c, src/gtk-client/gen_minimap.c, src/gtk-client/main.c:
+	Minimap: ca commence a marcher
+
+2001-04-07  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_minimap.c: maj minimap
+
+	* src/gtk-client/gen_minimap.c: MAJ minimap
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* src/gtk-client/minimap.c, src/gtk-client/client_gtk.h, src/gtk-client/map.c:
+	*** empty log message ***
+
+2001-04-07  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_minimap.c: proportion MINIMAP
+
+	* src/gtk-client/gen_minimap.c: bug --
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* src/gtk-client/client.h, src/gtk-client/load_map.c, src/gtk-client/minimap.c:
+	Minimap (partie GTK)
+
+2001-04-07  jc  <glop@ruri-chan>
+
+	* src/gtk-client/gen_minimap.c, src/gtk-client/Makefile.am: makefile..
+
+	* src/gtk-client/gen_minimap.c: Draw line
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/server.h, src/server/action.h, src/server/network.c, src/server/network_connect.c, src/server/network.h, src/gtk-client/client.h, src/gtk-client/load_map.c, src/gtk-client/map.c, src/general.h, doc/protocole.txt, Makefile.in:
+	Protcole version 2: gestion des action des AKX.
+
+2001-04-07  jc  <glop@ruri-chan>
+
+	* src/gtk-client/client.h, src/gtk-client/gen_minimap.c:
+	MAJ calcule couleurs id/nbr
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/network.c, src/server/network_connect.c, src/server/network.h, src/netlib/misc.c, src/netlib/net.h, src/netlib/write.c, src/gtk-client/client.h, src/gtk-client/load_map.c, src/gtk-client/mainbox.c, src/gtk-client/map.c, src/gtk-client/menubar.c, src/gtk-client/network.c:
+	Protcole bcp plus rapide
+
+2001-04-07  jc  <glop@ruri-chan>
+
+	* src/gtk-client/client.h, src/gtk-client/gen_minimap.c:
+	ajout generateur de minimap !
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/exec.c, src/server/network.c, src/server/network_connect.c, src/server/network.h, src/netlib/net_private.h, src/netlib/open.c, src/netlib/read.c, src/netlib/write.c, src/gtk-client/client.h, src/gtk-client/init.c, src/gtk-client/load_map.c, src/gtk-client/map.c, src/gtk-client/menubar.c, src/gtk-client/network.c, doc/protocole.txt, config.h.in, configure.in, Makefile.in:
+	Le reseau marche (enfin euh...)
+
+2001-04-07  jc  <glop@ruri-chan>
+
+	* src/server/game.c, src/server/message.c, src/server/parser.c:
+	PLUS DE DORMEUR
+
+	* src/server/conf.h, src/server/exec.c, data/map/sample.map, src/client/c/prolo.h, config.h.in:
+	Bug pulse 2
+
+	* Makefile.in: Bug pule 2
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/network.h: *** empty log message ***
+
+2001-04-07  jc  <glop@ruri-chan>
+
+	* src/server/action.h, src/server/client.c, src/server/exec.c, src/server/game.c, src/server/map_parser.c, src/server/message.c, src/server/parser.c, src/server/public.h, src/server/pulse.c:
+	MAJ bug pulse
+
+2001-04-07  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/conf.h, src/server/network.c, src/server/network_connect.c, src/server/server.h:
+	Ca compile
+
+	* src/server/conf.h, src/server/init.c, src/server/network.c, src/server/network_connect.c, src/server/server.h, src/server/Makefile.am:
+	Gestion reseau de base.
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/netlib/net.h, src/netlib/open.c: net_listen_at
+
+	* src/server/map_parser.c, ChangeLog, configure.in:
+	*** empty log message ***
+
+	* src/server/init.c: \n dans l'aide
+
+	* src/server/init.c: *** empty log message ***
+
+	* src/server/init.c: Typo fix
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/conf.h, src/server/game.c, src/server/ipc.c, src/server/main.c, src/server/message.c, src/server/plugins.c, src/server/plugins.h:
+	mode quiet
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/conf.h, src/server/init.c, src/server/map_parser.c:
+	Options supplemantaires dans la carte et la ligne de commande.
+
+	* doc/protocole.txt, Makefile.in: *** empty log message ***
+
+	* src/gtk-client/client.h, src/gtk-client/menubar.c, src/gtk-client/network.c:
+	Implementation de base du mode Step by Step
+
+	* src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/init.c, src/gtk-client/map.c, src/gtk-client/network.c:
+	Mise a jour de la carte
+
+	* src/gtk-client/client.h, src/gtk-client/init.c, src/gtk-client/load_map.c, src/gtk-client/Makefile.am, src/gtk-client/map.c, src/gtk-client/network.c:
+	Protocole de connexion et d'envoie de la map
+
+	* configure.in, src/server/private.h: *** empty log message ***
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/Makefile.am, src/server/message.c, src/server/message.h, src/server/plugins.h, src/server/server.h:
+	MAJ messager : affiche le nom du process qui affiche a l'ecran
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/init.c: Trap sigint
+
+	* src/netlib/check.c, src/netlib/read.c: *** empty log message ***
+
+	* src/gtk-client/init.c: Trap sigint
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/exec.c: appel de la fonction qui destroy!!!
+
+	* src/server/client.c, src/server/conf.h, src/server/erreur.h, src/server/exec.c, src/server/plugins.h, src/server/private.h:
+	VIE ==> DESTROY
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/netlib/check.c, src/netlib/Makefile.am, src/netlib/misc.c, src/netlib/net.h, src/netlib/net_private.h, src/netlib/open.c, src/netlib/read.c, src/netlib/write.c:
+	Fonctions de base
+
+	* src/gtk-client/init.c, src/general.h, doc/protocole.txt, Makefile.in, src/server/Makefile.am, README:
+	*** empty log message ***
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/client.c: champs de vison pris en compte!
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/Makefile.am, src/netlib/Makefile.am, src/netlib/net.h, src/netlib/open.c, src/netlib/read.c, src/netlib/write.c, src/gtk-client/client_gtk.h, src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gtk.c, src/gtk-client/init.c, src/gtk-client/mainbox.c, src/gtk-client/Makefile.am, src/gtk-client/menubar.c, src/gtk-client/minimap.c, src/Makefile.am, doc/protocole.txt, configure.in, Makefile.in:
+	Ajout du module netlib
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/client.c, src/server/conf.h, src/server/game.c, src/server/objects.c:
+	vision OK + 2/3 bugs..
+
+	* src/server/client.c, src/server/exec.c:
+	CHANGE move, pulse, link, take_r4d2, take_akx OK
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/game.c, src/server/objects.c:
+	Mise a zero de object->changed
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/client.c, src/server/client.h, src/server/exec.c, src/server/private.h:
+	score + change
+
+	* src/server/client.c, src/server/client.h, src/server/exec.c:
+	Check conflict with take_r4d2 and take_akx
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/conf.h, src/server/init.c: res->nb_players
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/client.c, src/server/exec.c, data/map/sample.map:
+	ADD repertoire pix(bitmap)
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* ChangeLog, src/client/cpp/main.cc, Makefile.in:
+	*** empty log message ***
+
+	* src/server/game.c, src/server/init.c, src/server/plugins.c, src/server/time.c:
+	Timeout
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/client/cpp/main.cc: *** empty log message ***
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/ipc.c, src/server/server.h, src/server/time.c, src/server/conf.h, src/server/game.c:
+	ipcrm reimplementer
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/exec.c, src/server/game.c:
+	MOVE BUG (tourner autour de l'arriver) corrige...
+
+	* src/server/client.c, src/server/game.c, src/server/init.c:
+	BUG gl_config->player = 0 OK
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/game.c, src/server/init.c, src/server/ipc.c, src/server/ipc.h:
+	Liberation shm
+
+	* configure.in: libfence supprimee
+
+	* src/server/game.c: Bugfix
+
+	* src/server/conf.h, src/server/game.c, src/server/init.c, src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/gtk.c, src/gtk-client/init.c, src/gtk-client/mainbox.c, src/gtk-client/main.c, src/gtk-client/menubar.c, src/gtk-client/statusbar.c, src/gtk-client/toolbar.c, src/gtk-client/Makefile.am:
+	*** empty log message ***
+
+	* src/general.h, config.h.in, configure.in, Makefile.in:
+	Ajout de signal.h
+
+	* src/server/game.c, src/server/pulse.c: Ca compile
+
+	* src/server/game.c, src/server/map_parser.c: *** empty log message ***
+
+2001-04-06  jc  <glop@ruri-chan>
+
+	* src/server/client.c: CLIENT.C correct
+
+	* src/server/client.c: CLITEN.C vraiment OK
+
+	* src/server/client.c, src/server/client.h: Client.c OK
+
+2001-04-06  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/game.c, src/server/plugins.h: *** empty log message ***
+
+	* src/server/conf.h, src/server/exec.c, src/server/init.c, src/server/ipc.h, src/server/map_parser.c, src/server/objects.c, src/server/plugins.c, src/server/private.h:
+	Pipe => shm
+
+	* src/server/server.h, src/general.h: *** empty log message ***
+
+	* src/gtk-client/client.h, src/gtk-client/gamearea.c, src/gtk-client/init.c, src/gtk-client/mainbox.c, src/gtk-client/main.c, src/gtk-client/Makefile.am, src/gtk-client/menubar.c, src/gtk-client/statusbar.c, src/gtk-client/toolbar.c:
+	Ca compile
+
+2001-04-05  jc  <glop@ruri-chan>
+
+	* src/client/c/prolo.h:
+	Client de test , affiche la team de tous les objets de la carte...
+
+	* src/server/game.c, src/server/init.c, src/server/ipc.c, src/server/map_parser.c:
+	GAEL T'ABUSE AVEC TON CODE POURRI QUI MARCHE PAS....
+
+	PARSER CONFOND les AKX et les R4D2
+	SIGNAL ... ca marche pas problem de synchro
+		en attendant j'ai mit un usleep de 5usec pour attendre le signal
+	bon y a aussi des probleme avec les pipes...
+
+2001-04-05  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/map_parser.c: Parseur fixe
+
+2001-04-05  jc  <glop@ruri-chan>
+
+	* src/server/client.h, src/server/game.c: client.h ADD
+
+	* src/server/ipc.c, src/server/ipc.h, src/server/server.h, src/server/time.c, src/server/client.c:
+	fonctions clients par pipes (fd)
+
+	* src/server/client.c, src/server/conf.h, src/server/game.c, src/server/server.h:
+	client.c + compil
+
+	* src/server/client.c, src/server/exec.c, src/server/game.c, src/server/Makefile.am:
+	client.c
+
+2001-04-04  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/conf.h, src/server/game.c, src/server/init.c, src/server/ipc.c, src/server/ipc.h, src/server/Makefile.am, src/server/map_parser.c, src/server/plugins.h, src/server/server.h:
+	System V IPC, debut des pipes
+
+	* src/server/objects.c, Makefile.in, stamp-h.in:
+	*** empty log message ***
+
+	* src/server/action.h, src/server/conf.h, src/server/exec.c, src/server/exec.h, src/server/game.c, src/server/init.c, src/server/Makefile.am, src/server/map.c, src/server/map_parser.c, src/server/objects.c, src/server/parser.c, src/server/parser.h, src/server/private.h, src/server/pulse.c, src/server/server.h:
+	Parser de la map
+
+2001-04-04  jc  <glop@ruri-chan>
+
+	* src/server/game.c: repertoire map
+
+	* data/map/sample.map: carte d'exemple sample.map
+
+	* src/server/exec.h, src/server/game.c, src/server/public.h, src/server/server.h:
+	MAJ:
+		fonctions nearest...
+
+	* src/server/exec.c, src/server/exec.h: execution OK
+
+2001-04-04  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/exec.c: Ca compile
+
+	* src/server/exec.c, src/server/exec.h, src/server/game.c, src/server/server.h:
+	*** empty log message ***
+
+2001-04-04  jc  <glop@ruri-chan>
+
+	* src/server/exec.c: .h
+
+	* src/server/exec.c, src/server/exec.h: mode
+
+	* src/server/exec.c, src/server/exec.h, src/server/game.c:
+	*** empty log message ***
+
+	* src/server/Makefile.am: update Makefile
+
+	* src/server/exec.c, src/server/exec.h: action.c added
+
+	* src/server/action.h, src/server/exec.h, src/server/game.c:
+	Execution des actions ( .h )
+
+2001-04-03  jc  <glop@ruri-chan>
+
+	* src/server/game.c, src/server/private.h: MAJ action par defaut ...
+
+2001-04-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/game.h, src/server/Makefile.am, src/server/pulse.c, src/server/server.h:
+	Pulsar: bugfix
+
+	* src/server/action.h, src/server/conf.h, src/server/map.c, src/server/private.h, src/server/pulse.c, src/server/server.h, config.h.in, configure.in, Makefile.in:
+	Pulsar
+
+2001-04-03  jc  <glop@ruri-chan>
+
+	* src/server/game.c, src/server/private.h: MAJ MIN et MAX ANGLE
+
+	* src/server/public.h, src/client/cpp/prolo.hh, src/client/c/prolo.h:
+	JC ? jsait plus OUPS
+
+2001-04-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/private.h, src/server/server.h: *** empty log message ***
+
+2001-04-03  jc  <glop@ruri-chan>
+
+	* src/server/game.c, src/server/plugins.h: UPDATE gestion erreur
+
+2001-04-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/private.h, src/server/time.c: *** empty log message ***
+
+2001-04-03  jc  <glop@ruri-chan>
+
+	* src/server/erreur.h: ERROR.H
+
+	* src/server/action.h, src/server/game.c, src/server/public.h: ACTION.H
+
+	* src/server/game.c: AJOUT
+		get_status R4D2 AKX
+
+	* src/server/time.c, src/server/conf.h, src/server/game.c, src/server/init.c, src/server/plugins.c, src/server/plugins.h, src/server/private.h, src/server/Makefile.am:
+	AJOUT :
+		fonction actions R4D2 AKX
+		action.h (structure de gestion des actions)
+
+	Attention MISE EN COMMENTAIRE DE TRUC A GAEL POUR COMPILER...
+
+2001-04-03  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/game.c: *** empty log message ***
+
+	* src/server/conf.h, src/server/game.c, src/server/init.c, src/server/Makefile.am, src/server/public.h, src/server/server.h, src/server/time.c:
+	Utilisation de itimer
+
+2001-04-03  jc  <glop@ruri-chan>
+
+	* src/server/conf.h, src/server/game.c:
+	TIMER... (gael fini ca me broutte...)
+
+	* src/server/game.c: Fonction AKX R4D2
+
+	* src/client/cpp/prolo.hh, src/client/c/prolo.h: MAJ prolo.h
+
+	* src/server/game.c, src/server/private.h, src/server/public.h, src/server/conf.h, src/server/init.c, src/server/plugins.h:
+	*** empty log message ***
+
+	* src/client/cpp/prolo.hh, src/client/c/prolo.h: MAJ prolo.h
+
+	* src/server/game.c, src/server/public.h: ajout fonctions :
+		time_get_left
+		time_get_bonus
+		score_get
+	modif proto :
+		score_get(void)
+
+	* src/server/conf.h, src/server/game.c, src/server/init.c, src/server/plugins.c, src/server/plugins.h:
+	LOTS OF KILOBUG BUGS CORRECTED
+		ajout temps/tours temps bonus dans conf_t et player_t
+		MAJ init -> temps
+		#ifndef __PROLO_CONF_H__ => conf_t (t'ABUSE KILO)
+		gestion du timer dans game.c
+
+	* src/server/plugins.c:
+	MSJ plugins.c (erreur dans les noms de symboles (sorry..)
+
+	* src/server/init.c, src/server/plugins.c:
+	MAJ BUS de KILOBUG.... (gestion parametre ligne de commandes)
+
+	* src/client/cpp/main.cc, src/client/cpp/Makefile, src/client/cpp/prolo.hh:
+	MAJ prolo.hh
+
+	* src/client/c/Makefile, src/client/c/prolo.h: MAJ prolo
+
+	* src/server/plugins.c, src/server/public.h: MAJ caml_startup
+	=> map_count_my_***(void)
+
+2001-04-02  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/conf.h, src/server/game.c, src/server/Makefile.am, src/server/map.c, src/server/private.h:
+	laucnh fait (pas encore le timer)
+
+	* Makefile.in: *** empty log message ***
+
+2001-04-02  jc  <glop@ruri-chan>
+
+	* src/client/c/Makefile, src/client/c/prolo.h: modif erreur public.h
+
+2001-04-02  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/init.c, src/server/main.c, src/server/Makefile.am, src/server/plugins.c, src/server/plugins.h, src/server/public.h, src/server/server.h:
+	Ok, ca compile
+
+	* src/server/conf.h, src/server/init.c, src/server/Makefile.am, src/server/server.h:
+	Parseur simple de ligne de commande.
+
+	* src/server/main.c: Merge entre caml et conf.
+
+2001-04-02  jc  <glop@ruri-chan>
+
+	* src/server/main.c, src/server/plugins.c, src/server/server.h:
+	ajout du lancement du CAML
+
+2001-04-02  Kilobug  <le-mig_g@epita.fr>
+
+	* src/server/main.c, src/server/Makefile.am, src/server/plugins.h, src/server/private.h, src/server/public.h, src/server/server.h, src/meta-client/Makefile.am, src/gtk-client/Makefile.am, doc/Makefile.am, config.h.in, Makefile.in, AUTHORS, ChangeLog, NEWS, src/Makefile.am, ltmain.sh, missing, mkinstalldirs, stamp-h.in, autogen.sh, config.guess, config.sub, configure.in, COPYING, INSTALL, install-sh, ltconfig, Makefile.am:
+	*** empty log message ***
+

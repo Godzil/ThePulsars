@@ -1,0 +1,106 @@
+dnl Process this file with autoconf to produce a configure script.
+dnl To build this package you'll need GNU autoconf, GNU automake and GNU 
+dnl libtool.
+dnl $Id: configure.in,v 1.44 2001/05/07 08:29:51 kilobug Exp $
+
+AC_INIT(configure.in)
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(Finale, 0.8.1)
+
+dnl Checks for programs.
+AC_ISC_POSIX
+AC_PROG_CC
+AC_HEADER_STDC
+AM_PROG_CC_STDC
+
+dnl Libtool checks
+dnl AC_LIBTOOL_DLOPEN
+AC_PROG_RANLIB
+
+dnl Modules
+AC_ARG_ENABLE(server,
+        [  --disable-server         don't build server],
+        [SERVER="$enableval"], 
+        [SERVER="yes"])
+AC_ARG_ENABLE(gtk-client,
+        [  --disable-gtk-client     don't build gtk-client],
+        [GTKCLIENT="$enableval"], 
+        [GTKCLIENT="yes"])
+AC_ARG_ENABLE(meta-client,
+        [  --disable-meta-client    don't build meta-client],
+        [MCLIENT="$enableval"], 
+        [MCLIENT="yes"])
+
+dnl Library support
+AM_PATH_GLIB(1.2.0, , AC_MSG_ERROR(Cannot find GLIB: Is glib-config in path?))
+
+LIBGTK=no
+LIBPIXBUF=no
+LIBMYSQL=no
+
+AM_PATH_GTK(1.2.0, [ LIBGTK="yes" ], [ AC_MSG_WARN(Cannot find GTK: disabling gtk-client and meta-client.) ] )
+AM_PATH_GDK_PIXBUF(0.10.0, [ LIBPIXBUF="yes" ], [ AC_MSG_WARN(Cannot find GDK_PIXBUF: disabling gtk-client.) ] )
+
+LIBGPC="no"
+
+AC_CHECK_LIB(m, sin, [ LDFLAGS="$LDFLAGS -lm" ], [ AC_MSG_ERROR(Standard math library not found) ] )
+AC_CHECK_LIB(gpc, init_Gpc, [ LIBGPC="yes" ], [ AC_MSG_WARN(Cannot find GPC library. Pascal support will be disabled.) ] )
+
+AC_CHECK_LIB(z, uncompress, [ LDFLAGS="$LDFLAGS -lz" ], [ AC_MSG_ERROR(Zlib not found) ] )
+AC_CHECK_LIB(mysqlclient, mysql_real_connect, [ LIBMYSQL="yes" ], [ AC_MSG_WARN(Mysql library not found. Disabling meta-client.) ] )
+
+if test "$LIBGTK" = "no"
+then
+   GTKCLIENT="no"
+   MCLIENT="no"
+fi
+if test "$LIBPIXBUF" = "no"
+then
+   GTKCLIENT="no"
+fi
+if test "$LIBMYSQL" = "no"
+then
+   MCLIENT="no"
+fi
+
+AM_CONDITIONAL(AM_BUILD_GTKCLIENT, test "$GTKCLIENT" != "no")
+AM_CONDITIONAL(AM_BUILD_MCLIENT, test "$MCLIENT" != "no")
+AM_CONDITIONAL(AM_BUILD_SERVER, test "$SERVER" != "no")
+AM_CONDITIONAL(AM_BUILD_PASCAL, test "$LIBGPC" != "no")
+
+dnl Checks for header files.
+AC_CHECK_HEADERS(stdlib.h stdio.h unistd.h string.h errno.h fcntl.h math.h signal.h ctype.h)
+
+dnl Check for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+
+dnl Support for --enable-debug
+AC_ARG_ENABLE(debug,
+        [  --enable-debug           enter debugging mode],
+        [FINALE_DEBUG=$enableval], 
+        [FINALE_DEBUG="no"])
+if test "$FINALE_DEBUG" != "no"
+then
+  CFLAGS="-O0 -ggdb -D__DEBUG__"
+dnl  AC_CHECK_LIB(efence, malloc, [ LDFLAGS="$LDFLAGS -lefence" ], [ AC_MSG_WARN(Electric-fence not found) ] )
+else
+  CFLAGS="-O9 -finline-functions -funroll-loops -malign-double -fno-rtti -fno-exceptions -march=i686 -fomit-frame-pointer -frerun-loop-opt -Werror"
+fi
+CFLAGS="$CFLAGS -Wall -I${HOME}/usr/lib/ocaml -I${HOME}/usr/include"
+
+dnl Output
+AC_SUBST(CFLAGS)
+AC_SUBST(LDFLAGS)
+
+AC_OUTPUT([
+Makefile
+doc/Makefile
+data/Makefile
+data/map/Makefile
+src/Makefile
+src/server/Makefile
+src/meta-client/Makefile
+src/gtk-client/Makefile
+src/netlib/Makefile
+src/gtkutil/Makefile
+])
