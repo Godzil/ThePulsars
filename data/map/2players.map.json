@@ -1,0 +1,52 @@
+{
+  "mapinfo": {
+    "width": 100.0,
+    "height": 100.0,
+    "pulse": { "power": 500, "coef": 0.1 }
+  },
+  "objects": [
+    { "pos": { "x": 0, "y": 0 }, "type": "AKX", "team": 1 },
+    { "pos": { "x": 1, "y": 0 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 0, "y": 1 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 1, "y": 1 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 2, "y": 0 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 2, "y": 1 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 2, "y": 2 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 1, "y": 2 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 0, "y": 2 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 3, "y": 0 }, "type": "R4D2", "team": 1 },
+    { "pos": { "x": 0, "y": 1 }, "type": "R4D2", "team": 1 },
+
+    { "pos": { "x": 100, "y": 100 }, "type": "AKX", "team": 2 },
+    { "pos": { "x":  99, "y": 100 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x": 100, "y":  99 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x":  99, "y":  99 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x":  98, "y": 100 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x":  98, "y":  99 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x":  98, "y":  98 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x":  99, "y":  98 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x": 100, "y":  98 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x":  97, "y": 100 }, "type": "R4D2", "team": 2 },
+    { "pos": { "x": 100, "y":  97 }, "type": "R4D2", "team": 2 },
+
+    { "pos": { "x": 100, "y": 50}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 0, "y": 50}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 50, "y": 100}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 50, "y": 0}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 50, "y": 50}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 100, "y": 25}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 0, "y": 25}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 25, "y": 100}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 25, "y": 0}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 25, "y": 25}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 25, "y": 50}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 50, "y": 25}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 100, "y": 75}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 0, "y": 75}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 75, "y": 100}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 75, "y": 0}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 75, "y": 75}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 75, "y": 50}, "type": "AKX", "team": 0 },
+    { "pos": { "x": 50, "y": 75}, "type": "AKX", "team": 0 }
+  ]
+}
