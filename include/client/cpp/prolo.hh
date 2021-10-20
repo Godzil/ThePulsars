@@ -1,4 +1,4 @@
-/* $Id: prolo.hh,v 1.10 2001/05/04 10:29:44 glop Exp $ */
+
 
 #ifndef __PROLO_BITMAP_H__
 #define __PROLO_BITMAP_H__

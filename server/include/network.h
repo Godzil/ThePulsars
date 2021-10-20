@@ -1,5 +1,3 @@
-/* $Id: network.h,v 1.6 2001/04/15 14:57:19 kilobug Exp $ */
-
 #ifndef __PROLO_SERVER_NETWORK_H__
 #define __PROLO_SERVER_NETWORK_H__
 
@@ -19,7 +17,7 @@ typedef struct _gfx_t
     int sock;
     int master;
     FILE *wmaster;
-    GSList *clients;
+    //GSList *clients;
 } gfx_t;
 
 boolean_t gfx_get_ack(gfx_client_t *cl);

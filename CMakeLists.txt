@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 
 project(ThePulsars)
 
 # External cmake modules
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/external/cmake ${CMAKE_MODULE_PATH})
 
 # Options for the project
 option(BUILD_SERVER "Build server" ON)
@@ -21,7 +21,7 @@ include_directories(include)
 include(GetGitRevisionDescription)
 git_describe(VERSION --tags --dirty=-dirty)
 
-#parse the version information into pieces.
+# Parse the version information into pieces.
 string(REGEX REPLACE "^v([0-9]+)\\..*" "\\1" VERSION_MAJOR "${VERSION}")
 string(REGEX REPLACE "^v[0-9]+\\.([0-9]+).*" "\\1" VERSION_MINOR "${VERSION}")
 string(REGEX REPLACE "^v[0-9]+\\.[0-9]+\\.([0-9]+).*" "\\1" VERSION_MICRO "${VERSION}")
@@ -32,11 +32,15 @@ add_compile_options(-DV_MINOR=${VERSION_MINOR})
 add_compile_options(-DV_MICRO=${VERSION_MICRO})
 add_compile_options(-DV_SHA=${VERSION_SHA1})
 
-
-#add_subdirectory(pulsarnet)
+add_subdirectory(doc)
+add_subdirectory(data)
 
 if (BUILD_SERVER)
     add_subdirectory(server)
+endif()
+
+if (BUILD_GCLIENT OR BUILD_METACLIENT OR BUILD_SERVER)
+    add_subdirectory(pulsarnet)
 endif()
 
 if (BUILD_GCLIENT OR BUILD_METACLIENT)

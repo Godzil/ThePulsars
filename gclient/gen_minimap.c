@@ -1,5 +1,3 @@
-/* $Id: gen_minimap.c,v 1.23 2001/04/29 15:41:05 glop Exp $ */
-
 #include "client.h"
 
 #define OFFSET(X, Y)    (((X) + (Y) * MINI_MAP_SIZE) * 4)
@@ -211,7 +209,7 @@ static void mm_plot_triangle(guchar *minimap, guchar id, guchar sat,
   else
     delta3 = 0;
   
-  /* PremiŠre partie du triangle ( tracage des section horizontale) */
+  /* Premiï¿½re partie du triangle ( tracage des section horizontale) */
 
   xa = x1;
   xb = x1;
@@ -272,7 +270,7 @@ static void mm_plot_cone(guchar *minimap, guchar id, guchar sat,
 {
   float cs, sn, csi;
   float x, y, xc, xd, yc, yd;
-  gboolean call_sub = FALSE;
+  bool call_sub = FALSE;
 
   x = x2 - x1;
   y = y2 - y1;
@@ -400,7 +398,7 @@ static void mm_plot_rectangle(guchar *minimap, const conf_t *conf)
     }
 }
 
-guchar *gen_minimap(const conf_t *conf, gboolean force)
+guchar *gen_minimap(const conf_t *conf, bool force)
 {
   static guchar		*minimap = NULL;
   int			cpt;

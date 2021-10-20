@@ -1,5 +1,3 @@
-/* $Id: action.h,v 1.7 2001/04/26 17:57:08 glop Exp $ */
-
 #ifndef __PROLO_ACTION_H__
 #define __PROLO_ACTION_H__
 

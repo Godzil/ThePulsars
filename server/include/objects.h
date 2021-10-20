@@ -1,5 +1,3 @@
-/* $Id: private.h,v 1.17 2001/05/07 02:41:36 kilobug Exp $ */
-
 #ifndef __PROLO_PRIVATE_H__
 #define __PROLO_PRIVATE_H__
 
@@ -62,6 +60,7 @@ typedef union _item_t
 extern item_t *glbObjects;
 
 void new_akx(float x, float y, int id);
+
 void new_r4d2(float x, float y, int id);
 
 #endif

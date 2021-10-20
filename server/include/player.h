@@ -1,5 +1,3 @@
-/* $Id: plugins.h,v 1.12 2001/05/05 17:58:10 kilobug Exp $ */
-
 #ifndef __PROLO_PLUGINS_H__
 #define __PROLO_PLUGINS_H__
 
@@ -11,8 +9,11 @@ typedef struct player_t
 
     /* Function exported by the player module */
     void (*init)(int team, int nbPlayers);
+
     void (*new_turn)(int turn);
+
     void (*akx_turn)(int id);
+
     void (*r4d2_turn)(int id);
 
     float score;
@@ -32,10 +33,15 @@ typedef struct player_t
 extern player_t *glbPlayer;
 
 player_t *player_new(const char *libname, const char *name, int id, conf_t *conf);
+
 void player_destroy(player_t *player);
+
 void player_init(player_t *p, int team_id);
+
 void player_new_turn(player_t *p, int turn_num);
+
 void player_turn_akx(player_t *p, int akx_id);
+
 void player_turn_r4d2(player_t *p, int r4d2_id);
 
 #endif

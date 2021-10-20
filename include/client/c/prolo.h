@@ -1,4 +1,4 @@
-/* $Id: prolo.h,v 1.12 2001/05/04 10:29:35 glop Exp $ */
+
 
 #ifndef __INTERFACE_C_H__
 #define __INTERFACE_C_H__
