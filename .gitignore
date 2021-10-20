@@ -1,0 +1,6 @@
+# Building/install folders
+build/
+install/
+# Clion folders
+cmake-*/
+.idea/
