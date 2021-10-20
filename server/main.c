@@ -25,7 +25,6 @@
 #include <ipc.h>
 #include <map.h>
 
-
 #ifdef ENABLE_GPC
 void init_Gpc(int argc, char **argv, char **arge);
 void init_Init();
@@ -54,7 +53,7 @@ static void cmdline_add_player(const char *str, conf_t *conf)
 
 static void help(char **argv)
 {
-    printf("Serveur Prologin version %d.%d.%d\n", V_MAJOR, V_MINOR, V_MICRO);
+    printf("Serveur Prologin version %d.%d.%d%s\n", V_MAJOR, V_MINOR, V_MICRO, V_SHA);
     printf("\n");
     printf("Syntaxe: %s [options] [-m carte] nom:fichier ...\n", argv[0]);
     printf("\nOptions:\n");

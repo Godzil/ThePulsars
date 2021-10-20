@@ -1,5 +1,5 @@
-#ifndef __PROLO_IPC_H__
-#define __PROLO_IPC_H__
+#ifndef THE_PULSAR_IPC_H
+#define THE_PULSAR_IPC_H
 
 int get_shm_conf_id();
 

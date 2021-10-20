@@ -1,5 +1,5 @@
-#ifndef __PROLO_CONF_H__
-#define __PROLO_CONF_H__
+#ifndef THE_PULSAR_CONF_H
+#define THE_PULSAR_CONF_H
 
 #include <sys/types.h>
 

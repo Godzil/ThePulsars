@@ -1,5 +1,5 @@
-#ifndef __PROLO_GENERAL_H__
-#define __PROLO_GENERAL_H__
+#ifndef THE_PULSAR_GENERAL_H
+#define THE_PULSAR_GENERAL_H
 
 #define False (0)
 #define True (!False)

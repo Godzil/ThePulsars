@@ -1,5 +1,5 @@
-#ifndef __PROLO_CLIENT_H__
-#define __PROLO_CLIENT_H__
+#ifndef THE_PULSAR_CLIENT_H
+#define THE_PULSAR_CLIENT_H
 
 #define MINI_MAP_SIZE 200
 #define MAP_SIZE 500

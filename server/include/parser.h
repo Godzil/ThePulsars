@@ -1,5 +1,5 @@
-#ifndef __PROLO_PARSER_H__
-#define __PROLO_PARSER_H__
+#ifndef THE_PULSAR_PARSER_H
+#define THE_PULSAR_PARSER_H
 
 #ifndef G_TOKEN_SEMICOLON
 #define G_TOKEN_SEMICOLON ';'

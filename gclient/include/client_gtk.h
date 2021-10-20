@@ -1,5 +1,5 @@
-#ifndef __PROLO_CLIENT_GTK_H__
-#define __PROLO_CLIENT_GTK_H__
+#ifndef THE_PULSAR_CLIENT_GTK_H
+#define THE_PULSAR_CLIENT_GTK_H
 
 /*
 ** General GTK wrappers

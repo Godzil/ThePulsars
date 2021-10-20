@@ -1,5 +1,5 @@
-#ifndef __PROLO_PLUGINS_H__
-#define __PROLO_PLUGINS_H__
+#ifndef THE_PULSAR_PLUGINS_H
+#define THE_PULSAR_PLUGINS_H
 
 #include "conf.h"
 

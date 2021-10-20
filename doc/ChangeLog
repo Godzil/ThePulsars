@@ -1102,7 +1102,7 @@
 	LOTS OF KILOBUG BUGS CORRECTED
 		ajout temps/tours temps bonus dans conf_t et player_t
 		MAJ init -> temps
-		#ifndef __PROLO_CONF_H__ => conf_t (t'ABUSE KILO)
+		#ifndef THE_PULSAR_CONF_H => conf_t (t'ABUSE KILO)
 		gestion du timer dans game.c
 
 	* src/server/plugins.c:

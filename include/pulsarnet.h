@@ -1,5 +1,5 @@
-#ifndef __PROLO_NET_LIB_H__
-#define __PROLO_NET_LIB_H__
+#ifndef THE_PULSAR_NET_LIB_H
+#define THE_PULSAR_NET_LIB_H
 
 #include <stdio.h>
 

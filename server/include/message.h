@@ -1,5 +1,5 @@
-#ifndef __PROLO_MESSAGE_H__
-#define __PROLO_MESSAGE_H__
+#ifndef THE_PULSAR_MESSAGE_H
+#define THE_PULSAR_MESSAGE_H
 
 void launch_messager();
 

@@ -1,5 +1,5 @@
-#ifndef __PROLO_CLIENT_H__
-#define __PROLO_CLIENT_H__
+#ifndef THE_PULSAR_CLIENT_H
+#define THE_PULSAR_CLIENT_H
 
 void set_default_action_r4d2(int r4d2_id);
 

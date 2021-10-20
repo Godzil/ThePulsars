@@ -1,5 +1,5 @@
-#ifndef __PROLO_NET_PRIVATE_H__
-#define __PROLO_NET_PRIVATE_H__
+#ifndef THE_PULSAR_NET_PRIVATE_H
+#define THE_PULSAR_NET_PRIVATE_H
 
 /*#define __DEBUG_NETLIB__*/
 

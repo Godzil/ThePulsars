@@ -1,5 +1,5 @@
-#ifndef __PROLO_PUBLIC_H__
-#define __PROLO_PUBLIC_H__
+#ifndef THE_PULSAR_PUBLIC_H
+#define THE_PULSAR_PUBLIC_H
 
 /*
 ** General functions

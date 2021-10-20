@@ -1,5 +1,5 @@
-#ifndef __PROLO_PRIVATE_H__
-#define __PROLO_PRIVATE_H__
+#ifndef THE_PULSAR_PRIVATE_H
+#define THE_PULSAR_PRIVATE_H
 
 #include "action.h"
 

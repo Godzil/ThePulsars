@@ -1,5 +1,5 @@
-#ifndef __PROLO_MCLIENT_H__
-#define __PROLO_MCLIENT_H__
+#ifndef THE_PULSAR_MCLIENT_H
+#define THE_PULSAR_MCLIENT_H
 
 typedef struct _conf_t conf_t;
 

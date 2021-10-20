@@ -1,7 +1,7 @@
 
 
-#ifndef __PROLO_BITMAP_H__
-#define __PROLO_BITMAP_H__
+#ifndef THE_PULSAR_BITMAP_H
+#define THE_PULSAR_BITMAP_H
 
 #include "interface.hh"
 

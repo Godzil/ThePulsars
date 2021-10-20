@@ -1,5 +1,5 @@
-#ifndef __PROLO_GAME_H__
-#define __PROLO_GAME_H__
+#ifndef THE_PULSAR_GAME_H
+#define THE_PULSAR_GAME_H
 
 #include "conf.h"
 #include "player.h"

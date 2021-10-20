@@ -1,5 +1,5 @@
-#ifndef __PROLO_ERREUR_H__
-#define __PROLO_ERREUR_H__
+#ifndef THE_PULSAR_ERREUR_H
+#define THE_PULSAR_ERREUR_H
 
 #define    NONE            0
 #define NOT_YOURS        1

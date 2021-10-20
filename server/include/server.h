@@ -1,5 +1,5 @@
-#ifndef __PROLO_SERVER_H__
-#define __PROLO_SERVER_H__
+#ifndef THE_PULSAR_SERVER_H
+#define THE_PULSAR_SERVER_H
 
 #include <player.h>
 #include <conf.h>

@@ -1,5 +1,5 @@
-#ifndef __PROLO_ACTION_H__
-#define __PROLO_ACTION_H__
+#ifndef THE_PULSAR_ACTION_H
+#define THE_PULSAR_ACTION_H
 
 /* gestion des actions */
 typedef enum _r4d2_action_type_e_

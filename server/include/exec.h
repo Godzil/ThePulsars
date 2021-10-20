@@ -1,5 +1,5 @@
-#ifndef __PROLO_EXEC_H__
-#define __PROLO_EXEC_H__
+#ifndef THE_PULSAR_EXEC_H
+#define THE_PULSAR_EXEC_H
 
 #define    SIGNE(_x)    (((_x) > 0) ? (1) : (((_x) < 0) ? (-1) : (0)))
 #define    SQR(_x)        ((_x) * (_x))

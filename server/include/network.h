@@ -1,5 +1,5 @@
-#ifndef __PROLO_SERVER_NETWORK_H__
-#define __PROLO_SERVER_NETWORK_H__
+#ifndef THE_PULSAR_SERVER_NETWORK_H
+#define THE_PULSAR_SERVER_NETWORK_H
 
 #include <stdio.h>
 #include <general.h>
