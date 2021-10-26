@@ -1,0 +1,36 @@
+Just a bunch of thinking notes:
+
+Basically, nearly everything need to be redone.
+
+- The network protocol can't be used as is and need to be redesign considering the new constrains
+- gclient and meta-client should be merged
+- maps converted to JSON (done 2players.map.json as an example)
+- server is the one to deal with the SQL database (if kept)
+- Agents (players AI) need to run on the client side (prevent potential hack and crash on the server side)
+- Network protocol need to take account of that and use some form of RPC and sync messages (Maps) (should network use
+  JSON messages? or binary?)
+- New "heavy" client using glfw & imgui
+- server split in two part, one for running a game (can be just a thread), the other for all the rest
+- only lua supported at first, may add compiled languages after, but both run anyway on the client side.
+- a form of ECS on the client side?
+- Should we have a tilemap engine + sprite or the 2D display, using quad for sprites and quad per tile? (would like to
+  avoid creating another "framebuffer" based app)
+- The client need to have an editor for the selected language so no need to exit to edit the bot.
+- Two mode for client map, normal where only seen data are provided, debug where the whole map is provided (to prevent
+  potential cheating)
+
+- Time constrains need to be kept (it is part of the game design) but instead of killing, just ignoring the commands
+  if came too late?
+- Most bot function can be done locally by the client from the map state, only move/action order need to be sent to the
+  server. As the game is somewhat turn based, we can batch all the commands to the server.
+- The network should be used on top of a SSL layer (not fun but don't want to send thing in clear, especially if there
+  is any form of login)
+
+Even more random:
+- Do we really need the server to be in C? Other than potential performances issues, Python could be easier to maintain
+  and make some of the server side of things. "heavy" client need to be native though.
+
+Ideas for later:
+- 3d view of the map, just for the fun
+- proper fog of war
+- Potential HTML based client. JSON as protocol would help a lot here.
